@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maria Regine Mendoza-Jara — Maths Curriculum and Project Leadership</title>
+<meta name="description" content="Maths curriculum development and project leadership by Maria Regine Mendoza-Jara: textbook projects, standards alignment, review management and house style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1EC;
+  --paper-2:#E3E8E1;
+  --ink:#1E2B3A;
+  --ink-soft:#4B5868;
+  --grid:#D3DBD2;
+  --blue:#2459A6;
+  --amber:#C8741A;
+  --rule:#C5CEC4;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Source Serif 4", Georgia, serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16202B; --paper-2:#1C2834; --ink:#E6ECE6; --ink-soft:#A9B5C2;
+    --grid:#26343F; --blue:#7FA8E8; --amber:#F0A14A; --rule:#2E3D4A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16202B; --paper-2:#1C2834; --ink:#E6ECE6; --ink-soft:#A9B5C2;
+  --grid:#26343F; --blue:#7FA8E8; --amber:#F0A14A; --rule:#2E3D4A;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font:400 1.0625rem/1.65 var(--body);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-0.01em}
+h2{font-size:clamp(1.75rem,3.2vw,2.4rem);font-weight:700;margin-bottom:.4em}
+h3{font-size:1.3rem;font-weight:700}
+p{margin:0 0 1em;max-width:66ch}
+.muted{color:var(--ink-soft)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px;flex-wrap:wrap}
+.top .name{font-family:var(--display);font-weight:700;font-size:1.05rem}
+.top nav{display:flex;gap:20px;flex-wrap:wrap}
+.top nav a{color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:500;font-size:.95rem}
+.top nav a:hover{color:var(--blue)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:64px;align-items:start;padding:48px 0 72px}
+.hero h1{font-size:clamp(1.8rem,3vw,2.3rem);font-weight:700;margin-bottom:.3em}
+.hero .role{font-family:var(--display);font-size:1.1rem;color:var(--ink-soft);margin-bottom:1.2em}
+.hero .role strong{color:var(--blue);font-weight:700}
+.hero .lede{font-size:1.15rem;color:var(--ink-soft);margin-bottom:.8em}
+.facts{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.facts li{font-size:.98rem;color:var(--ink-soft);line-height:1.4;padding:16px 0;border-bottom:1px solid var(--rule)}
+.facts strong{display:block;font-family:var(--display);font-size:1.5rem;color:var(--ink);line-height:1.15;margin-bottom:2px}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--rule)}
+.intro{max-width:66ch;margin-bottom:36px}
+
+/* applets */
+.applet{display:grid;grid-template-columns:minmax(300px,1fr) auto;gap:48px;padding:40px 0;border-top:1px solid var(--rule)}
+.applet:first-of-type{border-top:0;padding-top:8px}
+.more{font-size:1.5rem;margin:40px 0 0;padding-top:48px;border-top:2px solid var(--ink)}
+.more + .applet{border-top:0}
+.applet .meta{font-family:var(--display);font-size:.9rem;color:var(--ink-soft);margin:.35em 0 .9em}
+.applet ul{margin:0 0 1em;padding-left:1.1em}
+.applet li{margin-bottom:.35em;max-width:60ch}
+blockquote{margin:1.2em 0 0;padding:0 0 0 18px;border-left:3px solid var(--amber);font-style:italic}
+blockquote footer{font-style:normal;font-size:.9rem;color:var(--ink-soft);margin-top:.3em}
+.frame{box-sizing:content-box;background:var(--paper-2);border:1px solid var(--rule);border-radius:10px;overflow:hidden;display:grid;place-items:center;position:relative;justify-self:start;align-self:start}
+.frame.loaded{display:block;background:#fff}
+.media{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.frame iframe{border:0;display:block;background:#fff}
+.frame .load{
+  font:500 1rem var(--display);background:transparent;color:var(--ink);
+  border:1.5px solid var(--ink);border-radius:999px;padding:10px 20px;cursor:pointer
+}
+.frame .load:hover{background:var(--ink);color:var(--paper)}
+.frame .open{position:absolute;bottom:10px;right:14px;font-size:.85rem}
+.frame.loaded .open{display:none}
+.applet .open-below{display:inline-block;margin-top:8px;font-size:.9rem}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 56px}
+.skill{padding:18px 0;border-top:1px solid var(--rule)}
+.skill h3{font-size:1.1rem;margin-bottom:.3em}
+.skill p{margin:0;font-size:1rem;color:var(--ink-soft)}
+
+/* curricula */
+.curr{display:grid;grid-template-columns:140px 1fr;gap:10px 28px;margin:0}
+.curr dt{font-family:var(--display);font-weight:700}
+.curr dd{margin:0;color:var(--ink-soft)}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-top:1px solid var(--rule)}
+.timeline .when{font-family:var(--display);font-weight:700}
+.timeline p{margin:0}
+.projects li{grid-template-columns:260px 1fr;padding:20px 0}
+.projects .when{font-size:1.1rem}
+.projects small{display:block;font-weight:500;font-size:.9rem;color:var(--ink-soft);margin-top:2px}
+
+/* praise */
+.praise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 56px}
+.praise blockquote{margin:0;font-size:1.08rem}
+
+/* contact */
+.contact{padding:80px 0 96px}
+.contact h2{font-size:clamp(2rem,4vw,3rem)}
+.contact .links{display:flex;gap:24px;flex-wrap:wrap;font-family:var(--display);font-size:1.1rem;margin-top:12px}
+footer.site{font-size:.85rem;color:var(--ink-soft);padding:24px 0 40px;border-top:1px solid var(--rule)}
+
+@media (max-width:1100px){
+  .applet{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:860px){
+  .hero,.applet{grid-template-columns:1fr;gap:28px}
+  .skills,.praise{grid-template-columns:1fr}
+  .timeline li{grid-template-columns:1fr;gap:2px}
+  .curr{grid-template-columns:1fr;gap:2px}
+  .curr dd{margin-bottom:12px}
+  section{padding:56px 0}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .top nav{gap:14px}
+}
+
+.tight{margin:.4em 0 0;padding-left:1.1em}
+.timeline .tight li{display:list-item;padding:0;border:0;margin-bottom:.35em;max-width:66ch}
+.dec{border-collapse:collapse;width:100%;max-width:900px}
+.dec th,.dec td{text-align:left;padding:12px 16px 12px 0;border-top:1px solid var(--rule);vertical-align:top}
+.dec th{font-family:var(--display);font-weight:700;border-top:0}
+.dec td:first-child{font-family:var(--display);font-weight:500;width:200px}
+@media (max-width:860px){.dec td:first-child{width:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <span class="name">Maria Regine Mendoza-Jara</span>
+  <nav aria-label="Sections">
+    <a href="#projects">Projects</a>
+    <a href="#how">How I work</a>
+    <a href="#standards">Standards</a>
+    <a href="#interactive">Interactive</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <div>
+  <h1>Maths curriculum developer and project lead</h1>
+  <p class="role"><strong>Digital Content Writer at Mathspace</strong>, January 2020 to October 2026</p>
+  <p class="lede">For almost seven years at Mathspace, an online maths learning platform based in Australia, I wrote, reviewed and aligned curriculum content from Years 3 to 12 for Australia, the UK, the US and Canada.</p>
+  <p class="lede">I’ve led textbook projects from planning to live publication: setting scope and house style, coordinating writers and reviewers, running review rounds and keeping books accurate and on schedule.</p>
+  </div>
+  <ul class="facts">
+    <li><strong>13 frameworks</strong>Australia, the UK, the US and Canada, from primary number to Year 12 Specialist</li>
+    <li><strong>Project lead</strong>UK KS3 and KS4 textbooks, VCE 12 Specialist, Common Core assessments and GeoGebra</li>
+    <li><strong>Reviewer teams</strong>Coordinated writers and reviewers across whole books, chapter by chapter</li>
+  </ul>
+</div>
+
+<section id="projects">
+  <div class="intro">
+    <h2>Major projects</h2>
+    <p class="muted">What I owned, what I did and how each project ran.</p>
+  </div>
+  <ol class="timeline projects">
+    <li><span class="when">UK KS3 and KS4 Higher textbooks<small>2026, lead author</small></span>
+      <div>
+      <p>Helped set up Mathspace’s UK content pipeline, then authored and reviewed the KS3 and KS4 Higher books through to live publication.</p>
+      <ul class="tight">
+        <li>Ran a scope-and-boundaries review of every lesson and worksheet against the source of truth, so no lesson used skills taught later in the book.</li>
+        <li>Set book-wide notation, terminology and style, checked against DfE guidance and exam-board practice, and kept a decision log for the curriculum lead.</li>
+        <li>Wrote 34 topic overviews and 153 teacher subtopic overviews.</li>
+        <li>Coordinated a mechanical review of the KS4 Higher book with four reviewers across 27 chapters, then applied and logged their feedback in rounds.</li>
+      </ul>
+      </div></li>
+    <li><span class="when">VCE Year 12 Specialist Mathematics<small>2025–26, owner</small></span>
+      <div>
+      <p>Owned the remaining Specialist topics end to end and was the go-to person for the course’s content queries.</p>
+      <ul class="tight">
+        <li>Led a curriculum-wide vector notation update.</li>
+        <li>Mapped VCE Methods Units 1&amp;2 lessons against the VCAA areas of study, and placed lessons using teacher feedback.</li>
+      </ul>
+      </div></li>
+    <li><span class="when">Senior textbook QA<small>2025–26, coordinator</small></span>
+      <div>
+      <p>Coordinated writers and ran proofing QA for Queensland Year 12 Specialist, and QA’d chapters for VCE 11 Specialist, NSW 12 Advanced, Standard and Extension 2, and VIC 11 and 12 Foundation.</p>
+      </div></li>
+    <li><span class="when">Common Core Topic Assessments<small>2022, project manager</small></span>
+      <div>
+      <p>Managed the assessment and answer-key project for the Common Core textbooks, and was recognised for the project management. Also wrote Common Core Grade 6–8 lessons, worksheets and teacher notes.</p>
+      </div></li>
+    <li><span class="when">Florida B.E.S.T. standards<small>2021, core writer</small></span>
+      <div>
+      <p>Wrote content for about 110 standards from Grade 3 to Algebra 2, then helped deliver two rush projects: Access Points in two weeks and the Honors content in four. Mapped Florida standards to Common Core.</p>
+      </div></li>
+    <li><span class="when">GeoGebra project<small>Lead, first-edition Australian books</small></span>
+      <div>
+      <p>Led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books. Created the applet design system, trained several builders, reviewed applets before release and checked every applet across 12 Years 7–10 textbooks.</p>
+      </div></li>
+  </ol>
+</section>
+
+<section id="how">
+  <div class="intro"><h2>How I run a project</h2></div>
+  <div class="skills">
+    <div class="skill"><h3>Scope first</h3><p>Every book starts from its curriculum source: what each lesson covers, what students already know, and where the boundaries sit. That keeps writers aligned before a word is written.</p></div>
+    <div class="skill"><h3>One house style</h3><p>I set notation and style decisions once, record them, and apply them book-wide, so a team of writers produces content that reads as one voice.</p></div>
+    <div class="skill"><h3>Review in rounds</h3><p>Chapters move through authoring, review and edits with clear hand-offs in ClickUp. Reviewer comments are applied and logged, so nothing is lost between rounds.</p></div>
+    <div class="skill"><h3>Accuracy checks</h3><p>Proofing and mechanical reviews, answer-key checks and validation scripts catch errors before students see them.</p></div>
+    <div class="skill"><h3>Train the team</h3><p>I write guidelines, train new builders and writers, and stay available as the person they can ask.</p></div>
+    <div class="skill"><h3>AI where it helps</h3><p>I use Claude daily, alongside OpenAI and Grok, to draft chapters from a curriculum source and to build review tools, always paired with human review.</p></div>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="intro">
+    <h2>Examples of style decisions</h2>
+    <p class="muted">A few of the book-wide conventions I set for the UK textbooks, each checked against DfE guidance and UK exam practice.</p>
+  </div>
+  <table class="dec">
+    <thead><tr><th>Topic</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Recurring decimals</td><td>Dot notation on the first and last repeating digits, matching UK convention</td></tr>
+      <tr><td>Vectors</td><td>Bold for named vectors, an arrow over two letters for vectors between points</td></tr>
+      <tr><td>Terminology</td><td>UK terms throughout, such as “cuboid” and “positive skew”</td></tr>
+      <tr><td>Answer keys</td><td>Full stops only on full sentences, so short answers read cleanly</td></tr>
+      <tr><td>Prior knowledge</td><td>Links to earlier lessons only in the lesson introduction, with titles matching the source exactly</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="standards">
+  <div class="intro"><h2>Curricula and standards</h2></div>
+  <dl class="curr">
+    <dt>Australia</dt><dd>VCE (Foundation, General, Methods, Specialist), NSW (Standard, Advanced, Extension 1 and 2), QCAA, Australian Curriculum (AC9), WA</dd>
+    <dt>United Kingdom</dt><dd>KS3, KS4 / GCSE Higher, A-Level; IGCSE</dd>
+    <dt>United States</dt><dd>Florida B.E.S.T., Virginia SOL 2023, Common Core, Tennessee, Indiana</dd>
+    <dt>Canada</dt><dd>Ontario, Alberta</dd>
+    <dt>Philippines</dt><dd>DepEd K to 12 Mathematics, through The QED Room</dd>
+  </dl>
+</section>
+
+<section id="interactive">
+  <div class="intro">
+    <h2>Interactive content</h2>
+    <p class="muted">Two examples of the GeoGebra work that sat alongside the written lessons. <a href="./">See all applets on my interactive portfolio.</a></p>
+  </div>
+  <article class="applet">
+    <div>
+      <h3>Linear solutions</h3>
+      <p class="meta">Australian Curriculum Year 8 investigation, 2023 · built from scratch</p>
+      <ul>
+        <li>Each round generates a new linear equation, using an algorithm I wrote so every equation always has whole-number solutions.</li>
+        <li>The line is revealed only after students find three different solutions, so they can’t guess their way through.</li>
+      </ul>
+    </div>
+    <div class="media"><div class="frame" data-id="twxuuvyp" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+  <article class="applet">
+    <div>
+      <h3>Comparing data sets</h3>
+      <p class="meta">Australian Curriculum Year 10 student lesson, 2024</p>
+      <ul>
+        <li>Rebuilt how the histograms and frequency polygons are constructed so students can compare two data sets accurately.</li>
+      </ul>
+      <blockquote>“I think you nailed it.”<footer>Elisha Templin, reviewer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="kbsthqcw" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+</section>
+
+<section id="praise">
+  <div class="intro"><h2>What colleagues said</h2></div>
+  <div class="praise">
+    <blockquote>“She doesn’t just review content — she interrogates it, ensuring every piece is accurate and properly aligned to the curriculum.”<footer>Team recognition, VCE Curriculum, 2026</footer></blockquote>
+    <blockquote>“Holding down the fort on VCE Curriculum — owning the remaining VIC 12 Specialist Mathematics topics and delivering exceptional work.”<footer>Team recognition, 2026</footer></blockquote>
+    <blockquote>“Attention to detail always somehow finding the errors that have slipped through even after we thought we triple checked.”<footer>Florida Access Points project, 2021</footer></blockquote>
+    <blockquote>“A Herculean effort to repeat the entire FL Project in 4 weeks for the extended honors content.”<footer>Florida Honors team recognition, 2021</footer></blockquote>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p class="muted">Based in Calabarzon, Philippines, and used to working remotely with Australian, US and UK teams. BS Computer Science, University of the Philippines Los Baños, 2020.</p>
+  <div class="links">
+    <a href="mailto:mrgmendozajara@gmail.com">mrgmendozajara@gmail.com</a>
+    <a href="https://www.linkedin.com/in/maria-regine-mendoza-jara-a01558188/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://drive.google.com/file/d/1l9mQfbwrnvwSml5cLKHgwvhsvxQ9R5jD/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+    <a href="./">Interactive portfolio</a>
+  </div>
+</section>
+</main>
+
+<footer class="site">Content and applets were created for Mathspace and are shown here as work samples.</footer>
+</div>
+
+<script>
+/* ---------- Lazy GeoGebra embeds at their prescribed size ---------- */
+document.querySelectorAll('.frame').forEach(function (f) {
+  var id = f.dataset.id, w = +f.dataset.w, h = +f.dataset.h;
+  var open = document.createElement('a');
+  open.className = 'open';
+  open.href = 'https://www.geogebra.org/m/' + id;
+  open.target = '_blank';
+  open.rel = 'noopener';
+  open.textContent = 'Open on GeoGebra';
+  f.appendChild(open);
+  f.querySelector('.load').addEventListener('click', function () {
+    var ifr = document.createElement('iframe');
+    ifr.title = 'GeoGebra applet ' + id;
+    ifr.width = w; ifr.height = h;
+    ifr.style.width = w + 'px'; ifr.style.height = h + 'px';
+    ifr.allowFullscreen = true;
+    ifr.src = 'https://www.geogebra.org/material/iframe/id/' + id +
+      '/width/' + w + '/height/' + h +
+      '/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false';
+    f.innerHTML = '';
+    f.classList.add('loaded');
+    f.appendChild(ifr);
+    var below = open.cloneNode(true);
+    below.className = 'open-below';
+    f.insertAdjacentElement('afterend', below);
+    ifr.focus();
+  });
+});
+</script>
+</body>
+</html>
