@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maria Regine Mendoza-Jara — Maths Curriculum Portfolio</title>
+<meta name="description" content="Maths curriculum development and project leadership by Maria Regine Mendoza-Jara: textbook projects, standards alignment, review management and house style.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+/* ---------- Portfolio design system tokens ---------- */
+:root{
+  --gray-900:#141414; --gray-800:#2f2f2f; --gray-600:#575757; --gray-500:#8b8b8b; --gray-300:#bebebe; --gray-100:#dcdcdc; --gray-50:#efefef;
+  --purple-900:#230374; --purple-800:#401aa5; --purple-300:#ab97f8; --purple-100:#d8d1f5;
+  --green-500:#54b698; --green-800:#2a6050; --green-300:#67ddb9;
+  --brand-charcoal:#333333; --brand-violet:var(--purple-800); --brand-lavender:var(--purple-300);
+  --surface:#f5f5f5; --surface-raised:var(--gray-50); --ink:var(--gray-900); --ink-muted:var(--gray-600);
+  --line:var(--gray-100); --line-strong:var(--gray-500);
+  --accent:var(--brand-violet); --on-accent:#ffffff; --accent-disc:var(--brand-lavender); --on-accent-disc:var(--brand-charcoal);
+  --highlight:var(--brand-lavender); --tint:var(--purple-100); --success:var(--green-800);
+  --font-sans:"DM Sans", system-ui, sans-serif; --font-mono:"JetBrains Mono", ui-monospace, monospace;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px;
+  --radius-sm:4px; --radius-md:8px; --radius-lg:16px; --radius-pill:9999px;
+  --content-max:1200px; --header-height:72px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --surface:var(--gray-900); --surface-raised:var(--gray-800); --ink:var(--gray-50); --ink-muted:var(--gray-300);
+    --line:var(--gray-800); --accent:var(--purple-300); --on-accent:var(--gray-900); --accent-disc:var(--gray-900); --on-accent-disc:var(--purple-300);
+    --tint:#2a2140; --success:var(--green-300); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --surface:var(--gray-900); --surface-raised:var(--gray-800); --ink:var(--gray-50); --ink-muted:var(--gray-300);
+  --line:var(--gray-800); --accent:var(--purple-300); --on-accent:var(--gray-900); --accent-disc:var(--gray-900); --on-accent-disc:var(--purple-300);
+  --tint:#2a2140; --success:var(--green-300); color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--space-6)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--surface);color:var(--ink);font:400 16px/24px var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--radius-sm)}
+.wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--space-10)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
+h2{font-size:28px;line-height:36px;margin-bottom:var(--space-2)}
+h3{font-size:20px;line-height:28px}
+p{margin:0 0 var(--space-4);max-width:66ch}
+.muted{color:var(--ink-muted)}
+
+/* ---------- Header (design system) ---------- */
+.pf-header{position:relative;background:var(--surface)}
+.pf-strip{display:flex;height:6px}
+.pf-strip i{display:block}
+.pf-strip i:nth-child(1){flex:5;background:var(--brand-violet)}
+.pf-strip i:nth-child(2){flex:2;background:var(--brand-lavender)}
+.pf-strip i:nth-child(3){flex:1;background:var(--brand-charcoal)}
+.pf-header-inner{max-width:var(--content-max);margin:0 auto;height:var(--header-height);padding:0 var(--space-10);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);border-bottom:1px solid var(--line)}
+.pf-brand{display:inline-flex;align-items:center;gap:var(--space-3);color:var(--ink);text-decoration:none}
+.pf-brand-text{display:flex;flex-direction:column}
+.pf-brand-name{font-weight:700;font-size:20px;line-height:24px;letter-spacing:-.02em}
+.pf-brand-role{white-space:nowrap;font-family:var(--font-mono);font-size:11px;line-height:16px;color:var(--ink-muted);letter-spacing:.02em}
+.pf-mark{flex:none;transition:transform .2s}
+.pf-brand:hover .pf-mark{transform:rotate(-8deg)}
+.pf-mark-bg{fill:var(--brand-violet)}
+.pf-mark-fg{fill:var(--brand-lavender)}
+.pf-nav{display:flex;align-items:center;gap:var(--space-6)}
+.pf-nav ul{display:flex;gap:var(--space-1);padding:var(--space-1);margin:0;list-style:none;border-radius:var(--radius-pill);background:var(--surface-raised)}
+.pf-navlink{display:inline-block;padding:var(--space-2) var(--space-4);border-radius:var(--radius-pill);color:var(--ink-muted);text-decoration:none;font-size:15px;line-height:20px;font-weight:500;transition:background .15s,color .15s}
+.pf-navlink:hover{color:var(--ink);background:var(--surface)}
+.pf-navlink.is-active{color:var(--brand-charcoal);background:var(--highlight);font-weight:700}
+.pf-nav-end{display:flex;align-items:center;gap:var(--space-4)}
+.pf-status{white-space:nowrap;display:inline-flex;align-items:center;gap:var(--space-2);font-size:13px;line-height:16px;font-weight:500;color:var(--success)}
+.pf-status-dot{position:relative;width:8px;height:8px;border-radius:var(--radius-pill);background:var(--green-500)}
+.pf-status-dot::after{content:"";position:absolute;inset:-4px;border-radius:var(--radius-pill);border:2px solid var(--green-500);opacity:0;animation:pf-ping 2s ease-out infinite}
+@keyframes pf-ping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.pf-btn{display:inline-flex;align-items:center;gap:var(--space-2);height:44px;padding:0 var(--space-4) 0 var(--space-6);border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);text-decoration:none;font-size:15px;line-height:20px;font-weight:700;white-space:nowrap;transition:transform .15s}
+.pf-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--radius-pill);background:var(--accent-disc);color:var(--on-accent-disc);font-size:15px;transition:transform .15s}
+.pf-btn:hover{transform:translateY(-1px)}
+.pf-btn:hover .pf-btn-arrow{transform:translateX(3px)}
+.pf-btn-ghost{padding:0 var(--space-6);background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.pf-menu{display:none;width:44px;height:44px;border:0;border-radius:var(--radius-pill);background:var(--accent);cursor:pointer;align-items:center;justify-content:center}
+.pf-menu-bars,.pf-menu-bars::before,.pf-menu-bars::after{display:block;width:18px;height:2px;border-radius:2px;background:var(--on-accent);position:relative;transition:transform .15s}
+.pf-menu-bars::before,.pf-menu-bars::after{content:"";position:absolute;left:0}
+.pf-menu-bars::before{top:-6px}.pf-menu-bars::after{top:6px}
+.pf-open .pf-menu-bars{background:transparent}
+.pf-open .pf-menu-bars::before{transform:translateY(6px) rotate(45deg)}
+.pf-open .pf-menu-bars::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:1100px){.pf-brand-role,.pf-status{display:none}}
+@media (max-width:920px){
+  .pf-header-inner{padding:0 var(--space-4)}
+  .pf-menu{display:inline-flex}
+  .pf-nav{display:none}
+  .pf-open .pf-nav{display:flex;flex-direction:column;align-items:stretch;gap:var(--space-4);position:absolute;z-index:10;left:0;right:0;top:calc(var(--header-height) + 6px);padding:var(--space-4);background:var(--surface);border-bottom:1px solid var(--line)}
+  .pf-open .pf-nav ul{flex-direction:column;border-radius:var(--radius-lg)}
+  .pf-open .pf-navlink{display:block;padding:var(--space-3) var(--space-4);font-size:17px}
+  .pf-open .pf-nav-end{justify-content:space-between}
+  .pf-open .pf-status{display:inline-flex}
+}
+@media (prefers-reduced-motion: reduce){.pf-status-dot::after{animation:none}.pf-btn,.pf-btn-arrow,.pf-mark{transition:none}}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:var(--space-16);align-items:start;padding:var(--space-16) 0}
+.eyebrow{display:inline-block;margin-bottom:var(--space-4);padding:var(--space-1) var(--space-3);border-radius:var(--radius-pill);background:var(--tint);color:var(--accent);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font-size:40px;line-height:48px;margin-bottom:var(--space-3)}
+.hero h1 .hl{color:var(--accent)}
+.hero .role{font-size:17px;line-height:24px;color:var(--ink-muted);margin-bottom:var(--space-6)}
+.hero .role strong{color:var(--ink)}
+.hero .lede{font-size:18px;line-height:28px;color:var(--ink-muted)}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:var(--space-3)}
+.facts li{background:var(--surface-raised);border-radius:var(--radius-lg);padding:var(--space-4) var(--space-6);font-size:14px;line-height:20px;color:var(--ink-muted)}
+.facts strong{display:block;font-size:28px;line-height:36px;color:var(--ink)}
+.facts li:first-child strong{color:var(--accent)}
+
+/* ---------- Sections ---------- */
+main section{padding:var(--space-16) 0;border-top:1px solid var(--line)}
+.intro{max-width:66ch;margin-bottom:var(--space-8)}
+.sec-label{display:flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-2);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.sec-label svg rect{fill:currentColor}
+
+/* ---------- Applets ---------- */
+.applet{display:grid;grid-template-columns:minmax(300px,1fr) auto;gap:var(--space-8);padding:var(--space-8);margin-bottom:var(--space-6);background:var(--surface-raised);border-radius:var(--radius-lg)}
+.applet .meta{font-family:var(--font-mono);font-size:12px;line-height:18px;color:var(--ink-muted);margin:var(--space-2) 0 var(--space-4)}
+.applet .meta .tag{display:inline-block;margin-left:var(--space-1);padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--highlight);color:var(--brand-charcoal);font-family:var(--font-sans);font-weight:700}
+.applet ul{margin:0 0 var(--space-4);padding-left:1.1em}
+.applet li{margin-bottom:var(--space-2);max-width:60ch}
+.applet li::marker{color:var(--accent)}
+.more{font-size:28px;line-height:36px;margin:var(--space-12) 0 var(--space-6)}
+blockquote{margin:var(--space-6) 0 0;padding:var(--space-4) var(--space-6);border-left:4px solid var(--brand-lavender);background:var(--surface);border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:16px;line-height:24px}
+blockquote footer{font-size:14px;line-height:20px;color:var(--ink-muted);margin-top:var(--space-1)}
+.media{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.frame{box-sizing:content-box;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;display:grid;place-items:center;position:relative}
+.frame.loaded{display:block;background:#fff}
+.frame iframe{border:0;display:block;background:#fff}
+.frame .load{display:inline-flex;align-items:center;gap:var(--space-2);height:44px;padding:0 var(--space-4) 0 var(--space-6);border:0;border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);font:700 15px/20px var(--font-sans);cursor:pointer;transition:transform .15s}
+.frame .load::after{content:"→";display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--radius-pill);background:var(--accent-disc);color:var(--on-accent-disc)}
+.frame .load:hover{transform:translateY(-1px)}
+.frame .open{position:absolute;bottom:var(--space-3);right:var(--space-4);font-size:14px;font-weight:500}
+.frame.loaded .open{display:none}
+.applet .open-below{display:inline-block;margin-top:var(--space-2);font-size:14px;font-weight:500}
+
+/* ---------- Skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+.skill{padding:var(--space-6);background:var(--surface-raised);border-radius:var(--radius-lg)}
+.skill h3{font-size:18px;line-height:24px;margin-bottom:var(--space-2)}
+.skill p{margin:0;font-size:15px;line-height:22px;color:var(--ink-muted)}
+
+/* ---------- Timeline ---------- */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:140px 1fr;gap:var(--space-6);padding:var(--space-4) 0;border-top:1px solid var(--line)}
+.timeline .when{font-weight:700;color:var(--accent)}
+.timeline p{margin:0}
+.projects li{grid-template-columns:280px 1fr;padding:var(--space-6) 0}
+.projects .when{font-size:18px;line-height:24px;color:var(--ink)}
+.projects small{display:block;margin-top:var(--space-1);font-family:var(--font-mono);font-weight:400;font-size:12px;line-height:16px;color:var(--ink-muted)}
+
+/* ---------- Curricula ---------- */
+.curr{display:grid;grid-template-columns:160px 1fr;gap:var(--space-3) var(--space-8);margin:0}
+.curr dt{font-weight:700}
+.curr dd{margin:0;color:var(--ink-muted)}
+
+/* ---------- Praise ---------- */
+.praise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.praise blockquote{margin:0;background:var(--surface-raised);font-size:17px;line-height:26px}
+
+/* ---------- Contact ---------- */
+.contact .links{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)}
+
+/* ---------- Footer (design system, no headline band) ---------- */
+.pf-footer{position:relative;overflow:hidden;background:var(--brand-charcoal);color:#fff}
+.pf-footer-pattern{position:absolute;top:0;right:0;pointer-events:none}
+.pf-pat{fill:var(--brand-violet)}
+.pf-footer-inner{position:relative;max-width:var(--content-max);margin:0 auto;padding:var(--space-16) var(--space-10) var(--space-6)}
+.pf-footer .pf-brand{color:inherit}
+.pf-footer .pf-mark-bg{fill:var(--brand-lavender)}
+.pf-footer .pf-mark-fg{fill:var(--brand-charcoal)}
+.pf-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-8);padding-bottom:var(--space-12)}
+.pf-footer-tag{margin:var(--space-3) 0 0;max-width:340px;color:var(--gray-300);font-size:15px;line-height:22px}
+.pf-footer-head{display:flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-4);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-lavender)}
+.pf-footer-head svg rect{fill:currentColor}
+.pf-footer ul{list-style:none;margin:0;padding:0}
+.pf-footer-col li+li{margin-top:var(--space-3)}
+.pf-footer-col a{display:inline-flex;gap:var(--space-1);color:inherit;text-decoration:none;font-size:16px;line-height:20px;font-weight:500}
+.pf-footer-col a:hover{color:var(--brand-lavender)}
+.pf-ext{opacity:.6;font-size:13px}
+.pf-footer-bottom{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;padding-top:var(--space-6);border-top:1px solid var(--gray-600);color:var(--gray-300);font-size:14px;line-height:20px}
+.pf-top{color:inherit;text-decoration:none}
+.pf-top:hover{color:var(--brand-lavender)}
+.pf-footer a:focus-visible{outline-color:var(--brand-lavender)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){.applet{grid-template-columns:1fr;gap:var(--space-6)}}
+@media (max-width:860px){
+  .wrap{padding:0 var(--space-4)}
+  .hero{grid-template-columns:1fr;gap:var(--space-8);padding:var(--space-10) 0}
+  .hero h1{font-size:32px;line-height:40px}
+  .skills,.praise{grid-template-columns:1fr}
+  .timeline li,.projects li{grid-template-columns:1fr;gap:var(--space-1)}
+  .curr{grid-template-columns:1fr;gap:var(--space-1)}
+  .curr dd{margin-bottom:var(--space-3)}
+  main section{padding:var(--space-12) 0}
+  .applet{padding:var(--space-4)}
+  .pf-footer-inner{padding:var(--space-12) var(--space-4) var(--space-6)}
+  .pf-footer-top{grid-template-columns:1fr 1fr;gap:var(--space-8) var(--space-6)}
+  .pf-footer-intro{grid-column:1/-1}
+  .pf-footer-pattern{opacity:.5}
+}
+
+/* ---------- Curriculum page extras ---------- */
+.projects li>div>p{margin-bottom:var(--space-2)}
+.tight{margin:var(--space-2) 0 0;padding-left:1.1em}
+.timeline .tight li{display:list-item;padding:0;border:0;margin-bottom:var(--space-2);max-width:66ch}
+.tight li::marker{color:var(--accent)}
+.dec{border-collapse:separate;border-spacing:0;width:100%;max-width:900px;background:var(--surface-raised);border-radius:var(--radius-lg);overflow:hidden}
+.dec th,.dec td{text-align:left;padding:var(--space-4) var(--space-6);border-top:1px solid var(--line);vertical-align:top}
+.dec th{font-size:12px;line-height:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border-top:0;background:var(--tint)}
+.dec td:first-child{font-weight:700;width:220px}
+@media (max-width:860px){.dec td:first-child{width:auto}.dec th,.dec td{padding:var(--space-3) var(--space-4)}}
+
+/* ---------- On-this-page links (sticky chips with scrollspy) ---------- */
+.subnav-bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--surface) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.subnav{max-width:var(--content-max);margin:0 auto;padding:var(--space-3) var(--space-10);display:flex;align-items:center;gap:var(--space-2);overflow-x:auto;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav .lbl{flex:none;display:inline-flex;align-items:center;gap:var(--space-2);margin-right:var(--space-2);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.subnav .lbl svg rect{fill:currentColor}
+.subnav a{flex:none;display:inline-block;padding:6px var(--space-4);border-radius:var(--radius-pill);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-muted);text-decoration:none;font-size:14px;line-height:20px;font-weight:500;transition:background .15s,color .15s,box-shadow .15s}
+.subnav a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.subnav a.is-current{background:var(--highlight);color:var(--brand-charcoal);font-weight:700;box-shadow:none}
+html{scroll-padding-top:72px}
+@media (max-width:860px){.subnav{padding:var(--space-3) var(--space-4)}.subnav .lbl{display:none}}
+@media (prefers-reduced-motion: reduce){.subnav a{transition:none}}
+
+/* ---------- Video embed ---------- */
+.video{position:relative;width:100%;max-width:640px;aspect-ratio:16/9;margin-top:var(--space-4);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-raised);border:1px solid var(--line)}
+.video{background:var(--brand-charcoal) center/cover no-repeat}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:var(--space-2);width:100%;border:0;cursor:pointer;background:rgba(20,20,20,.35);color:#fff;font:700 15px/20px var(--font-sans)}
+.video-play .pf-btn-arrow{width:44px;height:44px;font-size:16px;background:var(--brand-lavender);color:var(--brand-charcoal)}
+.video-play:hover .pf-btn-arrow{transform:scale(1.08)}
+.video-link{display:inline-block;margin-top:var(--space-2);font-size:14px;font-weight:500}
+.pf-header .pf-brand-name{white-space:nowrap}
+.pf-menu{flex:none}
+@media (max-width:420px){.pf-header-inner{gap:var(--space-3)}}
+@media (max-width:340px){.pf-header .pf-brand-name{font-size:13px}.pf-header .pf-mark{width:30px;height:30px}}
+@media (max-width:420px){.pf-header .pf-brand-name{font-size:15px;line-height:20px}.pf-header .pf-brand{gap:var(--space-2)}}
+</style>
+</head>
+<body id="top">
+<header class="pf-header" id="siteHeader">
+  <div class="pf-strip" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="pf-header-inner">
+    <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine Mendoza‑Jara</span><span class="pf-brand-role">Curriculum · Interactive maths</span></span></a>
+    <nav class="pf-nav" id="siteNav" aria-label="Main">
+      <ul>
+        <li><a class="pf-navlink is-active" href="index.html" aria-current="page">Curriculum</a></li>
+        <li><a class="pf-navlink" href="geogebra.html">GeoGebra</a></li>
+      </ul>
+      <div class="pf-nav-end">
+        <span class="pf-status"><span class="pf-status-dot" aria-hidden="true"></span>Open to work</span>
+        <a class="pf-btn" href="#contact">Contact<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </nav>
+    <button class="pf-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu"><span class="pf-menu-bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+<div class="subnav-bar"><nav class="subnav" aria-label="On this page"><span class="lbl"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>On this page</span><a href="#projects">Projects</a><a href="#ai">AI work</a><a href="#how">How I work</a><a href="#decisions">House style</a><a href="#standards">Standards</a><a href="#contact">Contact</a></nav></div>
+<div class="wrap">
+<main>
+<div class="hero">
+  <div>
+  <span class="eyebrow">Portfolio</span>
+  <h1>Maths curriculum developer and <span class="hl">project lead</span></h1>
+  <p class="role"><strong>Digital Content Writer at Mathspace</strong>, January 2020 to October 2026</p>
+  <p class="lede">For almost seven years at Mathspace, an online maths learning platform based in Australia, I wrote, reviewed and aligned curriculum content from Years 3 to 12 for Australia, the UK, the US and Canada.</p>
+  <p class="lede">I’ve led textbook projects from planning to live publication: setting scope and house style, coordinating writers and reviewers, running review rounds and keeping books accurate and on schedule.</p>
+  <p class="lede">AI is part of how I work every day. I use Claude daily, alongside OpenAI and Grok, and I’ve built AI workflows that draft chapters from a curriculum source, speed up review and generate draft diagrams, always paired with human checks.</p>
+  </div>
+  <ul class="facts">
+    <li><strong>13 frameworks</strong>Australia, the UK, the US and Canada, from primary number to Year 12 Specialist</li>
+    <li><strong>Project lead</strong>UK KS3 and KS4 textbooks, VCE 12 Specialist, Common Core assessments and GeoGebra</li>
+    <li><strong>AI workflows</strong>Claude skills, AI-built review tools and diagram pipelines for curriculum content</li>
+  </ul>
+</div>
+
+<section id="projects">
+  <div class="intro">
+    <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Projects</p>
+    <h2>Major projects</h2>
+    <p class="muted">What I owned, what I did and how each project ran.</p>
+  </div>
+  <ol class="timeline projects">
+    <li><span class="when">UK KS3 and KS4 Higher textbooks<small>2026, lead author</small></span>
+      <div>
+      <p>Helped set up Mathspace’s UK content pipeline, then authored and reviewed the KS3 and KS4 Higher books through to live publication.</p>
+      <ul class="tight">
+        <li>Ran a scope-and-boundaries review of every lesson and worksheet against the source of truth, so no lesson used skills taught later in the book.</li>
+        <li>Set book-wide notation, terminology and style, checked against DfE guidance and exam-board practice, and kept a decision log for the curriculum lead.</li>
+        <li>Wrote 34 topic overviews and 153 teacher subtopic overviews, plus the chapter reviews and chapter refreshers.</li>
+        <li>Ran mechanical reviews of both books: for KS4 Higher, coordinated four reviewers across 27 chapters; for both books, applied and logged reviewer feedback in rounds.</li>
+      </ul>
+      </div></li>
+    <li><span class="when">VCE Year 12 Specialist Mathematics<small>2025–26, owner</small></span>
+      <div>
+      <p>Owned the remaining Specialist topics end to end and was the go-to person for the course’s content queries.</p>
+      </div></li>
+    <li><span class="when">Senior textbook QA<small>2025–26, coordinator</small></span>
+      <div>
+      <p>Coordinated writers and ran proofing QA for Queensland senior Specialist Mathematics, and QA’d chapters across senior VCE, NSW and Victorian courses, from Foundation to Specialist and Extension.</p>
+      </div></li>
+    <li><span class="when">Common Core Topic Assessments<small>2022, project manager</small></span>
+      <div>
+      <p>Managed the assessment and answer-key project for the Common Core textbooks, and was recognised for the project management. Also wrote Common Core Grade 6–8 lessons, worksheets and teacher notes.</p>
+      </div></li>
+    <li><span class="when">Florida B.E.S.T. standards<small>2021, core writer</small></span>
+      <div>
+      <p>Wrote content for about 110 standards from Grade 3 to Algebra 2, then helped deliver two rush projects: Access Points in two weeks and the Honors content in four. Mapped Florida standards to Common Core.</p>
+      </div></li>
+    <li><span class="when">GeoGebra project<small>Lead, first-edition Australian books</small></span>
+      <div>
+      <p>Led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books. Created the applet design system, trained several builders, reviewed applets before release and checked every applet across 12 Years 7–10 textbooks. <a href="geogebra.html">See my GeoGebra portfolio.</a></p>
+      </div></li>
+    <li><span class="when">The QED Room<small>2016–present, founder</small></span>
+      <div>
+      <p>An educational <a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">YouTube channel</a> I started to help students who struggle with maths build their own problem-solving strategies, with lessons in English and Tagalog.</p>
+      <ul class="tight">
+        <li>Run the channel as a small team project: I plan the work in weekly sprints and track every task by milestone, owner, dependency and status.</li>
+        <li>Set up the production templates the team works from: worksheets, answer keys and detailed answer keys in LaTeX, plus a slide template for recordings.</li>
+        <li>Coordinate video reviews, worksheet writing, transcription, branding and sourcing of DepEd K to 12 resources.</li>
+        <li>Maintain the channel’s <a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">Facebook page</a>.</li>
+      </ul>
+      <div class="video" data-yt="Nm_QsrV8D8c">
+        <button class="video-play" type="button" aria-label="Play The QED Room video"><span class="pf-btn-arrow" aria-hidden="true">▶</span><span>Play video</span></button>
+      </div>
+      <a class="video-link" href="https://www.youtube.com/watch?v=Nm_QsrV8D8c" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+      </div></li>
+  </ol>
+</section>
+
+<section id="ai">
+  <div class="intro">
+    <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>AI work</p>
+    <h2>AI-assisted curriculum work</h2>
+    <p class="muted">How I use AI to write and review curriculum faster, without lowering accuracy.</p>
+  </div>
+  <ol class="timeline projects">
+    <li><span class="when">Chapter-authoring skills<small>Claude</small></span>
+      <div><p>Built reusable Claude skills that draft full textbook chapters from a curriculum source of truth: student lessons, teacher notes, worksheets and answer keys. Companion skills write chapter reviews and chapter refreshers, so every chapter starts from the same scope and style.</p></div></li>
+    <li><span class="when">AI-built review tools<small>Claude Code</small></span>
+      <div><p>Used AI to build browser-based review panels and side-by-side diffs. Reviewers comment directly on the rendered lesson, their feedback is applied, and every change is logged, which made review rounds faster and easier to track.</p></div></li>
+    <li><span class="when">Diagram pipeline<small>AI + scripts</small></span>
+      <div><p>Built a system that generates draft maths diagrams from a written description and uploads them, ready to drop into lessons for checking and polishing.</p></div></li>
+    <li><span class="when">Accuracy safeguards<small>Human + automated</small></span>
+      <div><p>Every AI draft goes through validation scripts (answer-key generation, lesson checks) and human review against the curriculum and house style. My lead described my approach as using LLM tools as “force multipliers for the high standard she already holds herself to.”</p></div></li>
+    <li><span class="when">Everyday use<small>Claude, OpenAI, Grok</small></span>
+      <div><p>Drafting and rewording, checking answers, researching curriculum documents, and summarising feedback and project history from tools like ClickUp and Slack.</p></div></li>
+  </ol>
+</section>
+
+<section id="how">
+  <div class="intro"><p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Process</p>
+    <h2>How I run a project</h2></div>
+  <div class="skills">
+    <div class="skill"><h3>Scope first</h3><p>Every book starts from its curriculum source: what each lesson covers, what students already know, and where the boundaries sit. That keeps writers aligned before a word is written.</p></div>
+    <div class="skill"><h3>One house style</h3><p>I set notation and style decisions once, record them, and apply them book-wide, so a team of writers produces content that reads as one voice.</p></div>
+    <div class="skill"><h3>Review in rounds</h3><p>Chapters move through authoring, review and edits with clear hand-offs in ClickUp. Reviewer comments are applied and logged, so nothing is lost between rounds.</p></div>
+    <div class="skill"><h3>Accuracy checks</h3><p>Proofing and mechanical reviews, answer-key checks and validation scripts catch errors before students see them.</p></div>
+    <div class="skill"><h3>Train the team</h3><p>I write guidelines, train new builders and writers, and stay available as the person they can ask.</p></div>
+    <div class="skill"><h3>AI built in</h3><p>AI drafts, checks and summarises at each stage, from first chapter drafts to applying review feedback, with a person signing off before anything ships.</p></div>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="intro">
+    <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>House style</p>
+    <h2>Examples of style decisions</h2>
+    <p class="muted">A few of the book-wide conventions I set for the UK textbooks, each checked against DfE guidance and UK exam practice.</p>
+  </div>
+  <table class="dec">
+    <thead><tr><th>Topic</th><th>Decision</th></tr></thead>
+    <tbody>
+      <tr><td>Recurring decimals</td><td>Dot notation on the first and last repeating digits, matching UK convention</td></tr>
+      <tr><td>Vectors</td><td>Bold for named vectors, an arrow over two letters for vectors between points</td></tr>
+      <tr><td>Terminology</td><td>UK terms throughout, such as “cuboid” and “positive skew”</td></tr>
+      <tr><td>Answer keys</td><td>Full stops only on full sentences, so short answers read cleanly</td></tr>
+      <tr><td>Prior knowledge</td><td>Links to earlier lessons only in the lesson introduction, with titles matching the source exactly</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="standards">
+  <div class="intro"><p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Standards</p>
+    <h2>Curricula and standards</h2></div>
+  <dl class="curr">
+    <dt>Australia</dt><dd>VCE (Foundation, General, Methods, Specialist), NSW (Standard, Advanced, Extension 1 and 2), QCAA, Australian Curriculum (AC), WA</dd>
+    <dt>United Kingdom</dt><dd>KS3, KS4 / GCSE Higher, A-Level; IGCSE</dd>
+    <dt>United States</dt><dd>Florida B.E.S.T., Virginia SOL 2023, Common Core, Tennessee, Indiana</dd>
+    <dt>Canada</dt><dd>Ontario, Alberta</dd>
+    <dt>Philippines</dt><dd>DepEd K to 12 Mathematics, through The QED Room</dd>
+  </dl>
+</section>
+
+<section class="contact" id="contact">
+  <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Contact</p>
+    <h2>Contact</h2>
+  <p class="muted">Based in Calabarzon, Philippines, and used to working remotely with Australian, US and UK teams. BS Computer Science, University of the Philippines Los Baños, 2020.</p>
+  <div class="links">
+    <a class="pf-btn" href="mailto:mrgmendozajara@gmail.com">Email me<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
+    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/1eN53CpjsGrB8sRjvynT6kRiUY86Jni_T/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+    <a class="pf-btn pf-btn-ghost" href="geogebra.html">GeoGebra portfolio</a>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="pf-footer">
+  <svg class="pf-footer-pattern" aria-hidden="true" width="364" height="308" viewBox="0 0 364 308"><defs><pattern id="pfplus" width="28" height="28" patternUnits="userSpaceOnUse"><rect class="pf-pat" x="8" y="12.5" width="12" height="3" rx="1.5"/><rect class="pf-pat" x="12.5" y="8" width="3" height="12" rx="1.5"/></pattern></defs><rect width="364" height="308" fill="url(#pfplus)"/></svg>
+  <div class="pf-footer-inner">
+    <div class="pf-footer-top">
+      <div class="pf-footer-intro">
+        <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine</span></span></a>
+        <p class="pf-footer-tag">Maths curriculum and interactive content. Content and applets were created for Mathspace and are shown here as work samples.</p>
+      </div>
+      <nav class="pf-footer-col" aria-label="Footer">
+        <p class="pf-footer-head"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Pages</p>
+        <ul>
+          <li><a href="index.html">Curriculum</a></li>
+          <li><a href="geogebra.html">GeoGebra</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="pf-footer-col">
+        <p class="pf-footer-head"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Elsewhere</p>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/maria-regine-mendoza-jara-a01558188/" target="_blank" rel="noopener">LinkedIn<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">The QED Room on YouTube<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">The QED Room on Facebook<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://drive.google.com/file/d/1eN53CpjsGrB8sRjvynT6kRiUY86Jni_T/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pf-footer-bottom">
+      <span>© 2026 Maria Regine Mendoza-Jara</span>
+      <a href="#top" class="pf-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Header menu (narrow screens) ---------- */
+(function(){
+  var hdr=document.getElementById('siteHeader'),btn=document.getElementById('menuBtn');
+  function set(o){hdr.classList.toggle('pf-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  btn.addEventListener('click',function(){set(!hdr.classList.contains('pf-open'));});
+  document.querySelectorAll('#siteNav a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+
+</script>
+<script>
+/* ---------- Highlight the section in view ---------- */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.subnav a'));if(!links.length)return;
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var lockUntil=0,current=null;
+  function set(a){if(a===current)return;current=a;links.forEach(function(x){x.classList.toggle('is-current',x===a);if(x===a)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current');});
+    if(a){var nav=a.parentNode,l=a.offsetLeft-nav.offsetLeft,r=l+a.offsetWidth;if(l<nav.scrollLeft||r>nav.scrollLeft+nav.clientWidth){nav.scrollLeft=l-16;}}}
+  function update(){
+    if(Date.now()<lockUntil)return;
+    var line=innerHeight*0.35,pick=null;
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4){pick=links[links.length-1];}
+    else{secs.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<=line)pick=links[i];});}
+    set(pick);
+  }
+  links.forEach(function(a){a.addEventListener('click',function(){set(a);lockUntil=Date.now()+1200;setTimeout(update,1250);});});
+  window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();
+})();
+</script>
+<script>
+/* ---------- YouTube: thumbnail first, player on click ---------- */
+document.querySelectorAll('.video[data-yt]').forEach(function(v){
+  var id=v.dataset.yt;v.style.backgroundImage='url(https://i.ytimg.com/vi/'+id+'/hqdefault.jpg)';
+  v.querySelector('.video-play').addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0'+(/^https?:/.test(location.protocol)?'&origin='+encodeURIComponent(location.origin):'');
+    f.title='The QED Room video';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;v.innerHTML='';v.appendChild(f);
+  });
+});
+</script>
+</body>
+</html>

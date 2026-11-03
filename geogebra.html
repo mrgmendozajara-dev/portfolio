@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maria Regine Mendoza-Jara — Interactive Maths</title>
+<meta name="description" content="GeoGebra applets and investigations by Maria Regine Mendoza-Jara, Years 3 to 12.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+/* ---------- Portfolio design system tokens ---------- */
+:root{
+  --gray-900:#141414; --gray-800:#2f2f2f; --gray-600:#575757; --gray-500:#8b8b8b; --gray-300:#bebebe; --gray-100:#dcdcdc; --gray-50:#efefef;
+  --purple-900:#230374; --purple-800:#401aa5; --purple-300:#ab97f8; --purple-100:#d8d1f5;
+  --green-500:#54b698; --green-800:#2a6050; --green-300:#67ddb9;
+  --brand-charcoal:#333333; --brand-violet:var(--purple-800); --brand-lavender:var(--purple-300);
+  --surface:#f5f5f5; --surface-raised:var(--gray-50); --ink:var(--gray-900); --ink-muted:var(--gray-600);
+  --line:var(--gray-100); --line-strong:var(--gray-500);
+  --accent:var(--brand-violet); --on-accent:#ffffff; --accent-disc:var(--brand-lavender); --on-accent-disc:var(--brand-charcoal);
+  --highlight:var(--brand-lavender); --tint:var(--purple-100); --success:var(--green-800);
+  --font-sans:"DM Sans", system-ui, sans-serif; --font-mono:"JetBrains Mono", ui-monospace, monospace;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px;
+  --radius-sm:4px; --radius-md:8px; --radius-lg:16px; --radius-pill:9999px;
+  --content-max:1200px; --header-height:72px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --surface:var(--gray-900); --surface-raised:var(--gray-800); --ink:var(--gray-50); --ink-muted:var(--gray-300);
+    --line:var(--gray-800); --accent:var(--purple-300); --on-accent:var(--gray-900); --accent-disc:var(--gray-900); --on-accent-disc:var(--purple-300);
+    --tint:#2a2140; --success:var(--green-300); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --surface:var(--gray-900); --surface-raised:var(--gray-800); --ink:var(--gray-50); --ink-muted:var(--gray-300);
+  --line:var(--gray-800); --accent:var(--purple-300); --on-accent:var(--gray-900); --accent-disc:var(--gray-900); --on-accent-disc:var(--purple-300);
+  --tint:#2a2140; --success:var(--green-300); color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--space-6)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--surface);color:var(--ink);font:400 16px/24px var(--font-sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--radius-sm)}
+.wrap{max-width:var(--content-max);margin:0 auto;padding:0 var(--space-10)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
+h2{font-size:28px;line-height:36px;margin-bottom:var(--space-2)}
+h3{font-size:20px;line-height:28px}
+p{margin:0 0 var(--space-4);max-width:66ch}
+.muted{color:var(--ink-muted)}
+
+/* ---------- Header (design system) ---------- */
+.pf-header{position:relative;background:var(--surface)}
+.pf-strip{display:flex;height:6px}
+.pf-strip i{display:block}
+.pf-strip i:nth-child(1){flex:5;background:var(--brand-violet)}
+.pf-strip i:nth-child(2){flex:2;background:var(--brand-lavender)}
+.pf-strip i:nth-child(3){flex:1;background:var(--brand-charcoal)}
+.pf-header-inner{max-width:var(--content-max);margin:0 auto;height:var(--header-height);padding:0 var(--space-10);display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);border-bottom:1px solid var(--line)}
+.pf-brand{display:inline-flex;align-items:center;gap:var(--space-3);color:var(--ink);text-decoration:none}
+.pf-brand-text{display:flex;flex-direction:column}
+.pf-brand-name{font-weight:700;font-size:20px;line-height:24px;letter-spacing:-.02em}
+.pf-brand-role{white-space:nowrap;font-family:var(--font-mono);font-size:11px;line-height:16px;color:var(--ink-muted);letter-spacing:.02em}
+.pf-mark{flex:none;transition:transform .2s}
+.pf-brand:hover .pf-mark{transform:rotate(-8deg)}
+.pf-mark-bg{fill:var(--brand-violet)}
+.pf-mark-fg{fill:var(--brand-lavender)}
+.pf-nav{display:flex;align-items:center;gap:var(--space-6)}
+.pf-nav ul{display:flex;gap:var(--space-1);padding:var(--space-1);margin:0;list-style:none;border-radius:var(--radius-pill);background:var(--surface-raised)}
+.pf-navlink{display:inline-block;padding:var(--space-2) var(--space-4);border-radius:var(--radius-pill);color:var(--ink-muted);text-decoration:none;font-size:15px;line-height:20px;font-weight:500;transition:background .15s,color .15s}
+.pf-navlink:hover{color:var(--ink);background:var(--surface)}
+.pf-navlink.is-active{color:var(--brand-charcoal);background:var(--highlight);font-weight:700}
+.pf-nav-end{display:flex;align-items:center;gap:var(--space-4)}
+.pf-status{white-space:nowrap;display:inline-flex;align-items:center;gap:var(--space-2);font-size:13px;line-height:16px;font-weight:500;color:var(--success)}
+.pf-status-dot{position:relative;width:8px;height:8px;border-radius:var(--radius-pill);background:var(--green-500)}
+.pf-status-dot::after{content:"";position:absolute;inset:-4px;border-radius:var(--radius-pill);border:2px solid var(--green-500);opacity:0;animation:pf-ping 2s ease-out infinite}
+@keyframes pf-ping{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.pf-btn{display:inline-flex;align-items:center;gap:var(--space-2);height:44px;padding:0 var(--space-4) 0 var(--space-6);border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);text-decoration:none;font-size:15px;line-height:20px;font-weight:700;white-space:nowrap;transition:transform .15s}
+.pf-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--radius-pill);background:var(--accent-disc);color:var(--on-accent-disc);font-size:15px;transition:transform .15s}
+.pf-btn:hover{transform:translateY(-1px)}
+.pf-btn:hover .pf-btn-arrow{transform:translateX(3px)}
+.pf-btn-ghost{padding:0 var(--space-6);background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.pf-menu{display:none;width:44px;height:44px;border:0;border-radius:var(--radius-pill);background:var(--accent);cursor:pointer;align-items:center;justify-content:center}
+.pf-menu-bars,.pf-menu-bars::before,.pf-menu-bars::after{display:block;width:18px;height:2px;border-radius:2px;background:var(--on-accent);position:relative;transition:transform .15s}
+.pf-menu-bars::before,.pf-menu-bars::after{content:"";position:absolute;left:0}
+.pf-menu-bars::before{top:-6px}.pf-menu-bars::after{top:6px}
+.pf-open .pf-menu-bars{background:transparent}
+.pf-open .pf-menu-bars::before{transform:translateY(6px) rotate(45deg)}
+.pf-open .pf-menu-bars::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:1100px){.pf-brand-role,.pf-status{display:none}}
+@media (max-width:920px){
+  .pf-header-inner{padding:0 var(--space-4)}
+  .pf-menu{display:inline-flex}
+  .pf-nav{display:none}
+  .pf-open .pf-nav{display:flex;flex-direction:column;align-items:stretch;gap:var(--space-4);position:absolute;z-index:10;left:0;right:0;top:calc(var(--header-height) + 6px);padding:var(--space-4);background:var(--surface);border-bottom:1px solid var(--line)}
+  .pf-open .pf-nav ul{flex-direction:column;border-radius:var(--radius-lg)}
+  .pf-open .pf-navlink{display:block;padding:var(--space-3) var(--space-4);font-size:17px}
+  .pf-open .pf-nav-end{justify-content:space-between}
+  .pf-open .pf-status{display:inline-flex}
+}
+@media (prefers-reduced-motion: reduce){.pf-status-dot::after{animation:none}.pf-btn,.pf-btn-arrow,.pf-mark{transition:none}}
+
+/* ---------- Hero ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:var(--space-16);align-items:start;padding:var(--space-16) 0}
+.eyebrow{display:inline-block;margin-bottom:var(--space-4);padding:var(--space-1) var(--space-3);border-radius:var(--radius-pill);background:var(--tint);color:var(--accent);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font-size:40px;line-height:48px;margin-bottom:var(--space-3)}
+.hero h1 .hl{color:var(--accent)}
+.hero .role{font-size:17px;line-height:24px;color:var(--ink-muted);margin-bottom:var(--space-6)}
+.hero .role strong{color:var(--ink)}
+.hero .lede{font-size:18px;line-height:28px;color:var(--ink-muted)}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:var(--space-3)}
+.facts li{background:var(--surface-raised);border-radius:var(--radius-lg);padding:var(--space-4) var(--space-6);font-size:14px;line-height:20px;color:var(--ink-muted)}
+.facts strong{display:block;font-size:28px;line-height:36px;color:var(--ink)}
+.facts li:first-child strong{color:var(--accent)}
+
+/* ---------- Sections ---------- */
+main section{padding:var(--space-16) 0;border-top:1px solid var(--line)}
+.intro{max-width:66ch;margin-bottom:var(--space-8)}
+.sec-label{display:flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-2);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.sec-label svg rect{fill:currentColor}
+
+/* ---------- Applets ---------- */
+.applet{display:grid;grid-template-columns:minmax(300px,1fr) auto;gap:var(--space-8);padding:var(--space-8);margin-bottom:var(--space-6);background:var(--surface-raised);border-radius:var(--radius-lg)}
+.applet .meta{font-family:var(--font-mono);font-size:12px;line-height:18px;color:var(--ink-muted);margin:var(--space-2) 0 var(--space-4)}
+.applet .meta .tag{display:inline-block;margin-left:var(--space-1);padding:0 var(--space-2);border-radius:var(--radius-pill);background:var(--highlight);color:var(--brand-charcoal);font-family:var(--font-sans);font-weight:700}
+.applet ul{margin:0 0 var(--space-4);padding-left:1.1em}
+.applet li{margin-bottom:var(--space-2);max-width:60ch}
+.applet li::marker{color:var(--accent)}
+.more{font-size:28px;line-height:36px;margin:var(--space-12) 0 var(--space-6)}
+blockquote{margin:var(--space-6) 0 0;padding:var(--space-4) var(--space-6);border-left:4px solid var(--brand-lavender);background:var(--surface);border-radius:0 var(--radius-md) var(--radius-md) 0;font-size:16px;line-height:24px}
+blockquote footer{font-size:14px;line-height:20px;color:var(--ink-muted);margin-top:var(--space-1)}
+.media{min-width:0;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.frame{box-sizing:content-box;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-md);overflow:hidden;display:grid;place-items:center;position:relative}
+.frame.loaded{display:block;background:#fff}
+.frame iframe{border:0;display:block;background:#fff}
+.frame .load{display:inline-flex;align-items:center;gap:var(--space-2);height:44px;padding:0 var(--space-4) 0 var(--space-6);border:0;border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);font:700 15px/20px var(--font-sans);cursor:pointer;transition:transform .15s}
+.frame .load::after{content:"→";display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:var(--radius-pill);background:var(--accent-disc);color:var(--on-accent-disc)}
+.frame .load:hover{transform:translateY(-1px)}
+.frame .open{position:absolute;bottom:var(--space-3);right:var(--space-4);font-size:14px;font-weight:500}
+.frame.loaded .open{display:none}
+.applet .open-below{display:inline-block;margin-top:var(--space-2);font-size:14px;font-weight:500}
+
+/* ---------- Skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+.skill{padding:var(--space-6);background:var(--surface-raised);border-radius:var(--radius-lg)}
+.skill h3{font-size:18px;line-height:24px;margin-bottom:var(--space-2)}
+.skill p{margin:0;font-size:15px;line-height:22px;color:var(--ink-muted)}
+
+/* ---------- Timeline ---------- */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:140px 1fr;gap:var(--space-6);padding:var(--space-4) 0;border-top:1px solid var(--line)}
+.timeline .when{font-weight:700;color:var(--accent)}
+.timeline p{margin:0}
+.projects li{grid-template-columns:280px 1fr;padding:var(--space-6) 0}
+.projects .when{font-size:18px;line-height:24px;color:var(--ink)}
+.projects small{display:block;margin-top:var(--space-1);font-family:var(--font-mono);font-weight:400;font-size:12px;line-height:16px;color:var(--ink-muted)}
+
+/* ---------- Curricula ---------- */
+.curr{display:grid;grid-template-columns:160px 1fr;gap:var(--space-3) var(--space-8);margin:0}
+.curr dt{font-weight:700}
+.curr dd{margin:0;color:var(--ink-muted)}
+
+/* ---------- Praise ---------- */
+.praise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.praise blockquote{margin:0;background:var(--surface-raised);font-size:17px;line-height:26px}
+
+/* ---------- Contact ---------- */
+.contact .links{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-top:var(--space-6)}
+
+/* ---------- Footer (design system, no headline band) ---------- */
+.pf-footer{position:relative;overflow:hidden;background:var(--brand-charcoal);color:#fff}
+.pf-footer-pattern{position:absolute;top:0;right:0;pointer-events:none}
+.pf-pat{fill:var(--brand-violet)}
+.pf-footer-inner{position:relative;max-width:var(--content-max);margin:0 auto;padding:var(--space-16) var(--space-10) var(--space-6)}
+.pf-footer .pf-brand{color:inherit}
+.pf-footer .pf-mark-bg{fill:var(--brand-lavender)}
+.pf-footer .pf-mark-fg{fill:var(--brand-charcoal)}
+.pf-footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--space-8);padding-bottom:var(--space-12)}
+.pf-footer-tag{margin:var(--space-3) 0 0;max-width:340px;color:var(--gray-300);font-size:15px;line-height:22px}
+.pf-footer-head{display:flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-4);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-lavender)}
+.pf-footer-head svg rect{fill:currentColor}
+.pf-footer ul{list-style:none;margin:0;padding:0}
+.pf-footer-col li+li{margin-top:var(--space-3)}
+.pf-footer-col a{display:inline-flex;gap:var(--space-1);color:inherit;text-decoration:none;font-size:16px;line-height:20px;font-weight:500}
+.pf-footer-col a:hover{color:var(--brand-lavender)}
+.pf-ext{opacity:.6;font-size:13px}
+.pf-footer-bottom{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;padding-top:var(--space-6);border-top:1px solid var(--gray-600);color:var(--gray-300);font-size:14px;line-height:20px}
+.pf-top{color:inherit;text-decoration:none}
+.pf-top:hover{color:var(--brand-lavender)}
+.pf-footer a:focus-visible{outline-color:var(--brand-lavender)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){.applet{grid-template-columns:1fr;gap:var(--space-6)}}
+@media (max-width:860px){
+  .wrap{padding:0 var(--space-4)}
+  .hero{grid-template-columns:1fr;gap:var(--space-8);padding:var(--space-10) 0}
+  .hero h1{font-size:32px;line-height:40px}
+  .skills,.praise{grid-template-columns:1fr}
+  .timeline li,.projects li{grid-template-columns:1fr;gap:var(--space-1)}
+  .curr{grid-template-columns:1fr;gap:var(--space-1)}
+  .curr dd{margin-bottom:var(--space-3)}
+  main section{padding:var(--space-12) 0}
+  .applet{padding:var(--space-4)}
+  .pf-footer-inner{padding:var(--space-12) var(--space-4) var(--space-6)}
+  .pf-footer-top{grid-template-columns:1fr 1fr;gap:var(--space-8) var(--space-6)}
+  .pf-footer-intro{grid-column:1/-1}
+  .pf-footer-pattern{opacity:.5}
+}
+
+/* ---------- Title mascot ---------- */
+.hero{overflow-x:clip}
+.hero h1{position:relative}
+.hero h1 .hl{display:inline-block;transform-origin:50% 90%}
+.hero h1 .hl.nudge{animation:pf-nudge .5s ease-in-out}
+@keyframes pf-nudge{0%,100%{transform:rotate(0)}30%{transform:rotate(-4deg)}65%{transform:rotate(2deg)}}
+.mascot{position:absolute;left:0;top:0;width:40px;height:40px;pointer-events:none;opacity:0;transition:opacity .4s}
+.mascot.show{opacity:1}
+.mascot svg{display:block;width:40px;height:40px;overflow:visible}
+.pip-out rect{fill:var(--accent);stroke:var(--accent);stroke-width:5;stroke-linejoin:round}
+.pip-in rect{fill:var(--brand-lavender)}
+.pip-eye{fill:var(--brand-charcoal)}
+.pip-line{fill:none;stroke:var(--brand-charcoal);stroke-width:1.8;stroke-linecap:round}
+.ul{position:absolute;left:0;top:0;height:6px;width:0;border-radius:var(--radius-pill);background:var(--brand-lavender);pointer-events:none;transition:opacity .5s}
+.pip .eyes-happy{display:none}
+/* peek on applet load */
+.applet{position:relative}
+.peek{position:absolute;right:var(--space-8);bottom:100%;width:72px;height:34px;overflow:hidden;pointer-events:none}
+.peek .mascot-svg{position:absolute;left:4px;top:40px;width:40px;height:40px;overflow:visible;transition:top .45s cubic-bezier(.3,1.4,.5,1)}
+.peek.up .mascot-svg{top:2px}
+.peek .thumb{position:absolute;right:2px;top:6px;width:22px;height:22px;opacity:0;transform:scale(.4) rotate(-20deg);transition:opacity .25s .35s,transform .35s .35s cubic-bezier(.3,1.6,.5,1)}
+.peek.up .thumb{opacity:1;transform:scale(1) rotate(0)}
+.thumb path{fill:var(--brand-lavender);stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
+.pip.happy .eyes-open{display:none}.pip.happy .eyes-happy{display:inline}
+@media (prefers-reduced-motion: reduce){.mascot,.ul,.peek .mascot-svg,.peek .thumb{transition:none}.hero h1 .hl.nudge{animation:none}}
+
+/* ---------- On-this-page links (sticky chips with scrollspy) ---------- */
+.subnav-bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--surface) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.subnav{max-width:var(--content-max);margin:0 auto;padding:var(--space-3) var(--space-10);display:flex;align-items:center;gap:var(--space-2);overflow-x:auto;scrollbar-width:none}
+.subnav::-webkit-scrollbar{display:none}
+.subnav .lbl{flex:none;display:inline-flex;align-items:center;gap:var(--space-2);margin-right:var(--space-2);font-size:12px;line-height:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.subnav .lbl svg rect{fill:currentColor}
+.subnav a{flex:none;display:inline-block;padding:6px var(--space-4);border-radius:var(--radius-pill);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-muted);text-decoration:none;font-size:14px;line-height:20px;font-weight:500;transition:background .15s,color .15s,box-shadow .15s}
+.subnav a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.subnav a.is-current{background:var(--highlight);color:var(--brand-charcoal);font-weight:700;box-shadow:none}
+html{scroll-padding-top:72px}
+@media (max-width:860px){.subnav{padding:var(--space-3) var(--space-4)}.subnav .lbl{display:none}}
+@media (prefers-reduced-motion: reduce){.subnav a{transition:none}}
+.pf-header .pf-brand-name{white-space:nowrap}
+.pf-menu{flex:none}
+@media (max-width:420px){.pf-header-inner{gap:var(--space-3)}}
+@media (max-width:340px){.pf-header .pf-brand-name{font-size:13px}.pf-header .pf-mark{width:30px;height:30px}}
+@media (max-width:420px){.pf-header .pf-brand-name{font-size:15px;line-height:20px}.pf-header .pf-brand{gap:var(--space-2)}}
+</style>
+</head>
+<body id="top">
+<header class="pf-header" id="siteHeader">
+  <div class="pf-strip" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="pf-header-inner">
+    <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine Mendoza‑Jara</span><span class="pf-brand-role">GeoGebra · Interactive maths</span></span></a>
+    <nav class="pf-nav" id="siteNav" aria-label="Main">
+      <ul>
+        <li><a class="pf-navlink" href="index.html">Curriculum</a></li>
+        <li><a class="pf-navlink is-active" href="geogebra.html" aria-current="page">GeoGebra</a></li>
+      </ul>
+      <div class="pf-nav-end">
+        <span class="pf-status"><span class="pf-status-dot" aria-hidden="true"></span>Open to work</span>
+        <a class="pf-btn" href="#contact">Contact<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
+      </div>
+    </nav>
+    <button class="pf-menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu"><span class="pf-menu-bars" aria-hidden="true"></span></button>
+  </div>
+</header>
+<div class="subnav-bar"><nav class="subnav" aria-label="On this page"><span class="lbl"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>On this page</span><a href="#applets">Applets</a><a href="#projects">Projects</a><a href="#skills">What I do</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav></div>
+<div class="wrap">
+<main>
+<div class="hero">
+  <div>
+    <span class="eyebrow">Portfolio · GeoGebra in depth</span>
+  <h1 id="heroTitle">Interactive maths content <span class="hl">designer</span><span class="ul" id="titleUl" aria-hidden="true"></span><span class="mascot" id="mascot" aria-hidden="true"><svg viewBox="-20 -20 40 40"><g class="pip" id="pip">
+    <g class="pip-out"><rect x="-18" y="-7" width="36" height="14" rx="7"/><rect x="-7" y="-18" width="14" height="36" rx="7"/></g>
+    <g class="pip-in"><rect x="-18" y="-7" width="36" height="14" rx="7"/><rect x="-7" y="-18" width="14" height="36" rx="7"/></g>
+    <g class="eyes-open" id="pipEyes"><circle class="pip-eye" cx="-4" cy="-2.5" r="2.4"/><circle class="pip-eye" cx="4" cy="-2.5" r="2.4"/></g>
+    <g class="eyes-happy"><path class="pip-line" d="M-7 -1.5 q3 -3.5 6 0"/><path class="pip-line" d="M1 -1.5 q3 -3.5 6 0"/></g>
+    <path class="pip-line" d="M-3 3 q3 3 6 0"/>
+  </g></svg></span></h1>
+  <p class="role"><strong>Digital Content Writer at Mathspace</strong>, January 2020 to October 2026</p>
+  <p class="lede">I design and build GeoGebra applets and investigations where students explore a maths idea and show what they understand, not just enter an answer. At Mathspace, an online maths learning platform based in Australia, that came to about 450 applets for Years 3 to 12 across Australian, US and Canadian courses.</p>
+  <p class="lede">I led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books: I created the applet design system, trained the builders and checked every applet before release. I still do design QA for the team.</p>
+  </div>
+  <ul class="facts">
+    <li><strong>~450 applets</strong>Applets and investigations, Years 3 to 12</li>
+    <li><strong>Design system</strong>The applet style guide the team builds with, and the training to go with it</li>
+    <li><strong>12 textbooks</strong>Every applet in the Years 7–10 books checked, chapter by chapter</li>
+  </ul>
+</div>
+
+<section id="applets">
+  <div class="intro">
+    <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Work samples</p>
+    <h2>Selected applets</h2>
+    <p class="muted">Interactive GeoGebra work for Mathspace lessons and investigations. Each applet loads when you ask for it, so the page stays fast.</p>
+  </div>
+
+  <article class="applet">
+    <div>
+      <h3>Furious Avians, Level 4</h3>
+      <p class="meta">Public GeoGebra investigation, 2021</p>
+      <ul>
+        <li>A game-style investigation: students use sliders to build a quadratic, then fire the bird to see whether their parabola hits the target.</li>
+        <li>I was asked to redesign an existing applet and fix its errors. I created all the image assets from scratch in Figma, debugged the applet, and resized it to add a second graphics panel so the sliders and labels sit beside the game instead of on top of it.</li>
+        <li>Restyled it to Mathspace’s colours, fonts and line weights, and matched the controls to the other levels in the series.</li>
+        <li>Flagged that the equation and its solution used different number formats (decimals and fractions), so students wouldn’t be confused.</li>
+      </ul>
+    </div>
+    <div class="media"><div class="frame" data-id="udsukmuk" data-w="715" data-h="860" style="width:715px;height:860px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>Simulating compound events</h3>
+      <p class="meta">Australian Curriculum investigation, 2024 <span class="tag">Built from scratch</span></p>
+      <ul>
+        <li>The writer could find simulations for a coin or a die on their own, but not both together, so I built a combined compound-event simulator from scratch.</li>
+        <li>I wrote the randomisation mechanics, laid out every component and tested it so it runs error-free.</li>
+        <li>Added animated coin flips and die rolls, a running counter and a reset button, so students can run many trials and compare their results with theory.</li>
+        <li>The only outside help was a designer’s coin image; the rest of the applet is my work.</li>
+      </ul>
+    </div>
+    <div class="media"><div class="frame" data-id="hqqkagxk" data-w="596" data-h="360" style="width:596px;height:360px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>Linear solutions</h3>
+      <p class="meta">Australian Curriculum investigation, 2023 <span class="tag">Built from scratch</span></p>
+      <ul>
+        <li>Each round generates a new linear equation, using an algorithm I wrote so every equation always has whole-number solutions.</li>
+        <li>Students find solutions by placing points, and each point gives instant feedback.</li>
+        <li>The line is revealed only after three different solutions, so students can’t guess their way through. The reveal is earned by showing they understand what a solution to an equation is.</li>
+      </ul>
+      <blockquote>“Yes! I love this! Thanks so much for doing this so quickly!”<footer>Sarah Butterworth, curriculum writer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="twxuuvyp" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>Properties of real numbers</h3>
+      <p class="meta">Virginia SOL student lesson, 2024</p>
+      <ul>
+        <li>An applet for the commutative property: students change the order of the numbers and see that the result stays the same.</li>
+        <li>Inspired by <a href="https://www.geogebra.org/m/rcpj2jcv" target="_blank" rel="noopener">another GeoGebra applet</a>, which I used as a starting idea and rebuilt in Mathspace’s applet style.</li>
+        <li>I added a toggle so students switch between addition and multiplication in one applet, instead of using two separate tools.</li>
+      </ul>
+      <blockquote>“Teachers are going to love this.”<footer>Victoria Lowery, Virginia project lead</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="chvbjwee" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>Comparing data sets</h3>
+      <p class="meta">Australian Curriculum student lesson, 2024</p>
+      <ul>
+        <li>An applet for comparing two data sets using histograms and frequency polygons.</li>
+        <li>The brief was to create something like a reference applet. I rebuilt how the histograms and frequency polygons are constructed so they display the data accurately.</li>
+        <li>The result lets students compare the shape, centre and spread of two data sets side by side.</li>
+      </ul>
+      <blockquote>“I think you nailed it.”<footer>Elisha Templin, reviewer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="kbsthqcw" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <h3 class="more">More applets</h3>
+
+  <article class="applet">
+    <div>
+      <h3>Congruent, similar or neither?</h3>
+      <p class="meta">Australian Curriculum investigation, 2023</p>
+      <ul>
+        <li>Rebuilt from the ground up when the original applet could not show similarity at all.</li>
+        <li>Sixteen scenarios, one for each combination of given sides and angles, in almost 500 components.</li>
+        <li>Added a right-angle toggle, the obtuse-angle case where two triangles are possible, and a dropdown that gives students room to work.</li>
+      </ul>
+      <blockquote>“You are the ultimate applet queen! It amazes me how you can make these do exactly what we need.”<footer>Sarah Butterworth, curriculum writer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="jmd64r27" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>Parallel and perpendicular lines</h3>
+      <p class="meta">Virginia SOL student lesson, 2024 <span class="tag">Built from scratch</span></p>
+      <ul>
+        <li>Combined two separate lessons’ ideas into one applet so students compare parallel and perpendicular slopes side by side.</li>
+        <li>Chose input boxes over dropdowns for slope and intercept, so students type values rather than pick them.</li>
+      </ul>
+      <blockquote>“This looks great!”<footer>Maddie Dew, reviewer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="qhatabvm" data-w="596" data-h="596" style="width:596px;height:596px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+  <article class="applet">
+    <div>
+      <h3>The Monty Hall problem</h3>
+      <p class="meta">Australian Curriculum investigation, 2024</p>
+      <ul>
+        <li>Started from an existing Monty Hall applet whose probabilities were wrong: staying and switching came out about equal. I reworked the simulation so switching wins more often, as it should, and checked the results in a spreadsheet.</li>
+        <li>Redesigned the game flow: Stay and Switch appear only after a door is picked, a New game button appears after each decision, and a Reset button clears the win counters.</li>
+        <li>Added it to the Australian Curriculum, Victorian and NSW lessons.</li>
+      </ul>
+      <blockquote>“I tried the simulations again and they worked a bit better!… The applet does show that you win more when switching.”<footer>Sarah Butterworth, curriculum writer</footer></blockquote>
+    </div>
+    <div class="media"><div class="frame" data-id="mephfhyf" data-w="596" data-h="360" style="width:596px;height:360px"><button class="load" type="button">Load applet</button></div></div>
+  </article>
+
+
+</section>
+
+<section id="projects">
+  <div class="intro"><p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Projects</p><h2>GeoGebra projects</h2></div>
+  <ol class="timeline projects">
+    <li><span class="when">First-edition Australian books<small>2023–24, lead</small></span><p>Led the applet work for the Australian Curriculum, NSW and Victorian Years 7–10 textbooks: about 150 applets and investigations, built from lesson briefs, reference applets and Desmos sketches. Created the design system, trained builders, reviewed every applet and ran a chapter-by-chapter check across all 12 books before launch.</p></li>
+    <li><span class="when">Senior courses<small>2024–26</small></span><p>Function explorers and investigations for Queensland, NSW and VCE Years 11–12: quadratics, cubics, hyperbolas, piecewise functions, logarithms, vectors, complex numbers and statistics. Many were built from scratch from a Desmos reference or a written spec; later I ran design QA for the builders and trainees.</p></li>
+    <li><span class="when">Virginia SOL 2023<small>2024</small></span><p>About 60 applets and technology guides from Grade 6 to Algebra 2, including built-from-scratch applets such as parallel and perpendicular lines, plus design QA on the team’s builds.</p></li>
+    <li><span class="when">Public applet library<small>2021</small></span><p>Redesigned and debugged about 25 public applets for Mathspace’s library, including the Furious Avians projectile games, with new image assets made in Figma.</p></li>
+  </ol>
+</section>
+
+<section id="skills">
+  <div class="intro"><p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Skills</p><h2>What I do in GeoGebra</h2></div>
+  <div class="skills">
+    <div class="skill"><h3>Dynamic constructions</h3><p>Draggable points, sliders, checkboxes and dropdowns that let students build and test a maths idea themselves, from 3D solids to triangle congruence.</p></div>
+    <div class="skill"><h3>Randomisation and game mechanics</h3><p>New rounds on demand, rules that always give clean numbers, instant feedback and reveals students earn by showing they understand.</p></div>
+    <div class="skill"><h3>Simulations</h3><p>Probability simulations with animation, counters and reset, so students can run hundreds of trials and compare results with theory.</p></div>
+    <div class="skill"><h3>Design system</h3><p>Consistent sizes, colours, fonts and LaTeX labels, locked components and colourblind-safe palettes, written up as a style guide for the whole team.</p></div>
+    <div class="skill"><h3>QA and debugging</h3><p>Design QA against the style guide, fixing broken logic and edge cases, and checking that each applet matches its lesson’s instructions and questions.</p></div>
+    <div class="skill"><h3>Assets and AI</h3><p>Image assets drawn in Figma, and AI tools (Claude, OpenAI and Grok) to speed up planning, maths checks and documentation.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="intro">
+    <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Experience</p>
+    <h2>Experience</h2>
+    <p><strong>Digital Content Writer, Mathspace</strong> <span class="muted">(remote, January 2020 to October 2026)</span></p>
+  </div>
+  <ol class="timeline" reversed>
+    <li><span class="when">2026</span><p>Handed over the GeoGebra lead in March to focus on curriculum projects; still do design QA for the applet team.</p></li>
+    <li><span class="when">2024–26</span><p>Senior applets for Queensland, NSW and VCE courses; design QA for builders and trainees.</p></li>
+    <li><span class="when">2024</span><p>About 60 applets and tech guides for Virginia SOL 2023, Grade 6 to Algebra 2.</p></li>
+    <li><span class="when">2023</span><p>About 150 applets and investigations for the Australian Curriculum, NSW and Victorian Years 7–10 books; checked every applet across 12 textbooks.</p></li>
+    <li><span class="when">2021–22</span><p>Redesigned public applets; GeoGebra applets, worksheets and screenshots for the Common Core textbooks.</p></li>
+  </ol>
+  <p style="margin-top:24px">My main role at Mathspace was curriculum content. <a href="index.html">See my curriculum and project work.</a></p>
+
+  <p style="margin-top:40px"><strong>Founder, <a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">The QED Room</a></strong> <span class="muted">(October 2016 to present)</span></p>
+  <p>An educational YouTube channel I started to help students who struggle with maths build their own problem-solving strategies, with lessons in English and Tagalog. I run it with a small team, planning the work in weekly sprints and setting up the templates we produce from. I also maintain its <a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">Facebook page</a>. <a href="index.html#projects">More on my curriculum page.</a></p>
+
+  <h3 style="margin:48px 0 16px">Curricula</h3>
+  <dl class="curr">
+    <dt>Australia</dt><dd>VCE, NSW Syllabus, QCAA, Australian Curriculum, Western Australia</dd>
+    <dt>United Kingdom</dt><dd>KS3, KS4 / GCSE Higher, A-Level</dd>
+    <dt>United States</dt><dd>Florida B.E.S.T., Virginia SOL 2023, Common Core, Tennessee, Indiana</dd>
+    <dt>Canada</dt><dd>Ontario, Alberta</dd>
+    <dt>Philippines</dt><dd>DepEd K to 12 Mathematics, through The QED Room</dd>
+  </dl>
+</section>
+
+<section class="contact" id="contact">
+  <p class="sec-label"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Contact</p>
+  <h2>Contact</h2>
+  <p class="muted">Based in Calabarzon, Philippines, and used to working remotely with Australian, US and UK teams. BS Computer Science, University of the Philippines Los Baños, 2020.</p>
+  <div class="links">
+    <a class="pf-btn" href="mailto:mrgmendozajara@gmail.com">Email me<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
+    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/1eN53CpjsGrB8sRjvynT6kRiUY86Jni_T/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="pf-footer">
+  <svg class="pf-footer-pattern" aria-hidden="true" width="364" height="308" viewBox="0 0 364 308"><defs><pattern id="pfplus" width="28" height="28" patternUnits="userSpaceOnUse"><rect class="pf-pat" x="8" y="12.5" width="12" height="3" rx="1.5"/><rect class="pf-pat" x="12.5" y="8" width="3" height="12" rx="1.5"/></pattern></defs><rect width="364" height="308" fill="url(#pfplus)"/></svg>
+  <div class="pf-footer-inner">
+    <div class="pf-footer-top">
+      <div class="pf-footer-intro">
+        <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine</span></span></a>
+        <p class="pf-footer-tag">GeoGebra applets and interactive maths content. Applets were built for Mathspace and are shown here as work samples.</p>
+      </div>
+      <nav class="pf-footer-col" aria-label="Footer">
+        <p class="pf-footer-head"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Pages</p>
+        <ul>
+          <li><a href="index.html">Curriculum</a></li>
+          <li><a href="geogebra.html">GeoGebra</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="pf-footer-col">
+        <p class="pf-footer-head"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Elsewhere</p>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/maria-regine-mendoza-jara-a01558188/" target="_blank" rel="noopener">LinkedIn<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">The QED Room on YouTube<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">The QED Room on Facebook<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://drive.google.com/file/d/1eN53CpjsGrB8sRjvynT6kRiUY86Jni_T/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pf-footer-bottom">
+      <span>© 2026 Maria Regine Mendoza-Jara</span>
+      <a href="#top" class="pf-top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Title mascot: walks in, draws an underline, hops, walks off; eyes follow the pointer ---------- */
+var PIP_REDUCE=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var pointer=null;
+window.addEventListener('pointermove',function(e){pointer={x:e.clientX,y:e.clientY};},{passive:true});
+window.addEventListener('pointerdown',function(e){pointer={x:e.clientX,y:e.clientY};},{passive:true});
+function pipLook(svgEl,eyesEl,fallback){
+  if(!pointer){eyesEl.setAttribute('transform','translate('+(fallback*1.6)+' 0)');return;}
+  var r=svgEl.getBoundingClientRect(),dx=pointer.x-(r.left+r.width/2),dy=pointer.y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,k=Math.min(1,d/60)*2.2;
+  eyesEl.setAttribute('transform','translate('+(dx/d*k).toFixed(2)+' '+(dy/d*k).toFixed(2)+')');
+}
+(function(){
+  var h1=document.getElementById('heroTitle'),m=document.getElementById('mascot'); if(!h1||!m) return;
+  var word=h1.querySelector('.hl'),ul=document.getElementById('titleUl'),pip=document.getElementById('pip'),eyes=document.getElementById('pipEyes'),svg=m.querySelector('svg');
+  var S=40;
+  function geo(){var a=h1.getBoundingClientRect(),w=word.getBoundingClientRect();
+    return {left:w.left-a.left,stop:w.right-a.left+6,out:a.width-S,y:w.bottom-a.top-S-4,uy:w.bottom-a.top-4,ww:w.width};}
+  function place(x,y,rot){m.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';pip.setAttribute('transform','rotate('+(rot||0).toFixed(1)+')');}
+  function line(g,frac,op){ul.style.transform='translate('+g.left.toFixed(1)+'px,'+g.uy.toFixed(1)+'px)';ul.style.width=(g.ww*frac).toFixed(1)+'px';ul.style.opacity=op;}
+  if(PIP_REDUCE){var g0=geo();place(Math.min(g0.stop,g0.out),g0.y);line(g0,1,1);pip.setAttribute('class','pip happy');m.classList.add('show');return;}
+  var WALK=1800,DRAW=1100,HOP=900,OUT=1500,REST=2500,T=WALK+DRAW+HOP+OUT+REST,t0=null;
+  function ease(u){return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;}
+  function tick(ts){
+    if(t0===null)t0=ts;
+    var t=(ts-t0)%T,g=geo(),start=Math.max(g.out,g.stop+40),x,y=g.y,rot=0,look=null,walkDir=0;
+    pip.setAttribute('class','pip');
+    if(t<WALK){var u=t/WALK;x=start+(g.stop-start)*ease(u);y-=Math.abs(Math.sin(u*Math.PI*6))*4;rot=-6;walkDir=-1;m.classList.add('show');line(g,0,1);}
+    else if(t<WALK+DRAW){var v=(t-WALK)/DRAW;x=g.stop+Math.sin(v*Math.PI)*4;rot=10*Math.sin(v*Math.PI);line(g,ease(v),1);}
+    else if(t<WALK+DRAW+HOP){var w=(t-WALK-DRAW)/HOP;x=g.stop;y-=Math.abs(Math.sin(w*Math.PI*2))*14;pip.setAttribute('class','pip happy');line(g,1,1);}
+    else if(t<WALK+DRAW+HOP+OUT){var o=(t-WALK-DRAW-HOP)/OUT;x=g.stop+(start-g.stop)*ease(o);y-=Math.abs(Math.sin(o*Math.PI*5))*4;rot=6;walkDir=1;if(o>.7)m.classList.remove('show');line(g,1,o>.3?0:1);}
+    else{x=start;m.classList.remove('show');line(g,0,0);}
+    place(x,y,rot);
+    if(walkDir) eyes.setAttribute('transform','translate('+(walkDir*1.6)+' 0)'); else pipLook(svg,eyes,0);
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ---------- Peek: the mascot pops up behind an applet card when it loads ---------- */
+function pipPeek(card){
+  if(!card||card.querySelector('.peek')) return;
+  var src=document.querySelector('#mascot svg'); if(!src) return;
+  var wrap=document.createElement('div');wrap.className='peek';wrap.setAttribute('aria-hidden','true');
+  var svg=src.cloneNode(true);svg.setAttribute('class','mascot-svg');
+  svg.querySelectorAll('[id]').forEach(function(n){n.removeAttribute('id');});
+  var g=svg.querySelector('.pip');g.setAttribute('class','pip happy');g.removeAttribute('transform');
+  wrap.appendChild(svg);
+  wrap.insertAdjacentHTML('beforeend','<svg class="thumb" viewBox="0 0 22 22"><path d="M3 10h4v9H3z"/><path d="M8 10l3-6c.5-1 2.2-.8 2.2.6V9h4.3c1.2 0 2 1.1 1.7 2.2l-1.6 6.2c-.2.9-1 1.6-2 1.6H8z"/></svg>');
+  card.appendChild(wrap);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){wrap.classList.add('up');});});
+  setTimeout(function(){wrap.classList.remove('up');setTimeout(function(){wrap.remove();},600);},PIP_REDUCE?2000:2600);
+}
+/* ---------- Header menu (narrow screens) ---------- */
+(function(){
+  var hdr=document.getElementById('siteHeader'),btn=document.getElementById('menuBtn');
+  function set(o){hdr.classList.toggle('pf-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  btn.addEventListener('click',function(){set(!hdr.classList.contains('pf-open'));});
+  document.querySelectorAll('#siteNav a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+})();
+
+/* ---------- Lazy GeoGebra embeds at their prescribed size ---------- */
+document.querySelectorAll('.frame').forEach(function (f) {
+  var id = f.dataset.id, w = +f.dataset.w, h = +f.dataset.h;
+  var open = document.createElement('a');
+  open.className = 'open';
+  open.href = 'https://www.geogebra.org/m/' + id;
+  open.target = '_blank';
+  open.rel = 'noopener';
+  open.textContent = 'Open on GeoGebra';
+  f.appendChild(open);
+  f.querySelector('.load').addEventListener('click', function () {
+    pipPeek(f.closest('.applet'));
+    var ifr = document.createElement('iframe');
+    ifr.title = 'GeoGebra applet ' + id;
+    ifr.width = w; ifr.height = h;
+    ifr.style.width = w + 'px'; ifr.style.height = h + 'px';
+    ifr.allowFullscreen = true;
+    ifr.src = 'https://www.geogebra.org/material/iframe/id/' + id +
+      '/width/' + w + '/height/' + h +
+      '/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false';
+    f.innerHTML = '';
+    f.classList.add('loaded');
+    f.appendChild(ifr);
+    var below = open.cloneNode(true);
+    below.className = 'open-below';
+    f.insertAdjacentElement('afterend', below);
+    ifr.focus();
+  });
+});
+</script>
+<script>
+/* ---------- Highlight the section in view ---------- */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.subnav a'));if(!links.length)return;
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var lockUntil=0,current=null;
+  function set(a){if(a===current)return;current=a;links.forEach(function(x){x.classList.toggle('is-current',x===a);if(x===a)x.setAttribute('aria-current','true');else x.removeAttribute('aria-current');});
+    if(a){var nav=a.parentNode,l=a.offsetLeft-nav.offsetLeft,r=l+a.offsetWidth;if(l<nav.scrollLeft||r>nav.scrollLeft+nav.clientWidth){nav.scrollLeft=l-16;}}}
+  function update(){
+    if(Date.now()<lockUntil)return;
+    var line=innerHeight*0.35,pick=null;
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4){pick=links[links.length-1];}
+    else{secs.forEach(function(el,i){if(el&&el.getBoundingClientRect().top<=line)pick=links[i];});}
+    set(pick);
+  }
+  links.forEach(function(a){a.addEventListener('click',function(){set(a);lockUntil=Date.now()+1200;setTimeout(update,1250);});});
+  window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();
+})();
+</script>
+</body>
+</html>
