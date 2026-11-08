@@ -210,7 +210,7 @@ blockquote footer{font-size:14px;line-height:20px;color:var(--ink-muted);margin-
 }
 
 /* ---------- Title mascot ---------- */
-.hero{overflow-x:clip}
+
 .hero h1{position:relative}
 .hero h1 .hl{display:inline-block;transform-origin:50% 90%}
 .hero h1 .hl.nudge{animation:pf-nudge .5s ease-in-out}
@@ -252,6 +252,25 @@ html{scroll-padding-top:72px}
 @media (max-width:420px){.pf-header-inner{gap:var(--space-3)}}
 @media (max-width:340px){.pf-header .pf-brand-name{font-size:13px}.pf-header .pf-mark{width:30px;height:30px}}
 @media (max-width:420px){.pf-header .pf-brand-name{font-size:15px;line-height:20px}.pf-header .pf-brand{gap:var(--space-2)}}
+/* ---------- Scroll reveal and counters ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Hero background: maths grid paper with soft glow ---------- */
+html{overflow-x:clip}
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);
+  background:radial-gradient(60% 70% at 85% 20%,color-mix(in srgb,var(--brand-lavender) 35%,transparent),transparent 70%),
+             radial-gradient(40% 50% at 10% 90%,color-mix(in srgb,var(--brand-lavender) 18%,transparent),transparent 70%),
+             url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%3Cg%20stroke%3D%22%23401aa5%22%20stroke-opacity%3D%220.06%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20.5H480M0%2048.5H480M0%2096.5H480M0%20144.5H480M0%20192.5H480M0%20240.5H480M0%20288.5H480M0%20336.5H480M0%20384.5H480M0%20432.5H480M.5%200V480M48.5%200V480M96.5%200V480M144.5%200V480M192.5%200V480M240.5%200V480M288.5%200V480M336.5%200V480M384.5%200V480M432.5%200V480%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23401aa5%22%20fill-opacity%3D%220.1%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-style%3D%22italic%22%3E%3Ctext%20x%3D%2240%22%20y%3D%2270%22%20font-size%3D%2234%22%20transform%3D%22rotate%28-8%2040%2070%29%22%3E%CF%80%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%2260%22%20font-size%3D%2230%22%20transform%3D%22rotate%286%20300%2060%29%22%3E%E2%88%9Ax%3C/text%3E%3Ctext%20x%3D%22190%22%20y%3D%22170%22%20font-size%3D%2240%22%20transform%3D%22rotate%280%20190%20170%29%22%3E%E2%88%91%3C/text%3E%3Ctext%20x%3D%22380%22%20y%3D%22210%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-6%20380%20210%29%22%3Ex%C2%B2%3C/text%3E%3Ctext%20x%3D%2270%22%20y%3D%22260%22%20font-size%3D%2246%22%20transform%3D%22rotate%288%2070%20260%29%22%3E%E2%88%AB%3C/text%3E%3Ctext%20x%3D%22260%22%20y%3D%22300%22%20font-size%3D%2232%22%20transform%3D%22rotate%280%20260%20300%29%22%3E%E2%96%B3%3C/text%3E%3Ctext%20x%3D%22430%22%20y%3D%22360%22%20font-size%3D%2230%22%20transform%3D%22rotate%2810%20430%20360%29%22%3E%CE%B8%3C/text%3E%3Ctext%20x%3D%22140%22%20y%3D%22400%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-10%20140%20400%29%22%3E%C2%BD%3C/text%3E%3Ctext%20x%3D%22330%22%20y%3D%22440%22%20font-size%3D%2234%22%20transform%3D%22rotate%280%20330%20440%29%22%3E%E2%88%9E%3C/text%3E%3Ctext%20x%3D%2220%22%20y%3D%22450%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%2020%20450%29%22%3E%2B%3C/text%3E%3Ctext%20x%3D%22460%22%20y%3D%22110%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%20460%20110%29%22%3E%3D%3C/text%3E%3Ctext%20x%3D%22220%22%20y%3D%2240%22%20font-size%3D%2226%22%20transform%3D%22rotate%288%20220%2040%29%22%3E%25%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size:auto,auto,480px 480px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent);mask-image:linear-gradient(to bottom,#000 70%,transparent)}
+.hero .facts li{background:color-mix(in srgb,var(--surface-raised) 88%,transparent);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .hero::before{background-image:radial-gradient(60% 70% at 85% 20%,color-mix(in srgb,var(--brand-violet) 45%,transparent),transparent 70%),radial-gradient(40% 50% at 10% 90%,color-mix(in srgb,var(--brand-violet) 25%,transparent),transparent 70%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%3Cg%20stroke%3D%22%23ab97f8%22%20stroke-opacity%3D%220.06%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20.5H480M0%2048.5H480M0%2096.5H480M0%20144.5H480M0%20192.5H480M0%20240.5H480M0%20288.5H480M0%20336.5H480M0%20384.5H480M0%20432.5H480M.5%200V480M48.5%200V480M96.5%200V480M144.5%200V480M192.5%200V480M240.5%200V480M288.5%200V480M336.5%200V480M384.5%200V480M432.5%200V480%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23ab97f8%22%20fill-opacity%3D%220.1%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-style%3D%22italic%22%3E%3Ctext%20x%3D%2240%22%20y%3D%2270%22%20font-size%3D%2234%22%20transform%3D%22rotate%28-8%2040%2070%29%22%3E%CF%80%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%2260%22%20font-size%3D%2230%22%20transform%3D%22rotate%286%20300%2060%29%22%3E%E2%88%9Ax%3C/text%3E%3Ctext%20x%3D%22190%22%20y%3D%22170%22%20font-size%3D%2240%22%20transform%3D%22rotate%280%20190%20170%29%22%3E%E2%88%91%3C/text%3E%3Ctext%20x%3D%22380%22%20y%3D%22210%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-6%20380%20210%29%22%3Ex%C2%B2%3C/text%3E%3Ctext%20x%3D%2270%22%20y%3D%22260%22%20font-size%3D%2246%22%20transform%3D%22rotate%288%2070%20260%29%22%3E%E2%88%AB%3C/text%3E%3Ctext%20x%3D%22260%22%20y%3D%22300%22%20font-size%3D%2232%22%20transform%3D%22rotate%280%20260%20300%29%22%3E%E2%96%B3%3C/text%3E%3Ctext%20x%3D%22430%22%20y%3D%22360%22%20font-size%3D%2230%22%20transform%3D%22rotate%2810%20430%20360%29%22%3E%CE%B8%3C/text%3E%3Ctext%20x%3D%22140%22%20y%3D%22400%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-10%20140%20400%29%22%3E%C2%BD%3C/text%3E%3Ctext%20x%3D%22330%22%20y%3D%22440%22%20font-size%3D%2234%22%20transform%3D%22rotate%280%20330%20440%29%22%3E%E2%88%9E%3C/text%3E%3Ctext%20x%3D%2220%22%20y%3D%22450%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%2020%20450%29%22%3E%2B%3C/text%3E%3Ctext%20x%3D%22460%22%20y%3D%22110%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%20460%20110%29%22%3E%3D%3C/text%3E%3Ctext%20x%3D%22220%22%20y%3D%2240%22%20font-size%3D%2226%22%20transform%3D%22rotate%288%20220%2040%29%22%3E%25%3C/text%3E%3C/g%3E%3C/svg%3E")}}
+:root[data-theme="dark"] .hero::before{background-image:radial-gradient(60% 70% at 85% 20%,color-mix(in srgb,var(--brand-violet) 45%,transparent),transparent 70%),radial-gradient(40% 50% at 10% 90%,color-mix(in srgb,var(--brand-violet) 25%,transparent),transparent 70%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%3Cg%20stroke%3D%22%23ab97f8%22%20stroke-opacity%3D%220.06%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20.5H480M0%2048.5H480M0%2096.5H480M0%20144.5H480M0%20192.5H480M0%20240.5H480M0%20288.5H480M0%20336.5H480M0%20384.5H480M0%20432.5H480M.5%200V480M48.5%200V480M96.5%200V480M144.5%200V480M192.5%200V480M240.5%200V480M288.5%200V480M336.5%200V480M384.5%200V480M432.5%200V480%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23ab97f8%22%20fill-opacity%3D%220.1%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-style%3D%22italic%22%3E%3Ctext%20x%3D%2240%22%20y%3D%2270%22%20font-size%3D%2234%22%20transform%3D%22rotate%28-8%2040%2070%29%22%3E%CF%80%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%2260%22%20font-size%3D%2230%22%20transform%3D%22rotate%286%20300%2060%29%22%3E%E2%88%9Ax%3C/text%3E%3Ctext%20x%3D%22190%22%20y%3D%22170%22%20font-size%3D%2240%22%20transform%3D%22rotate%280%20190%20170%29%22%3E%E2%88%91%3C/text%3E%3Ctext%20x%3D%22380%22%20y%3D%22210%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-6%20380%20210%29%22%3Ex%C2%B2%3C/text%3E%3Ctext%20x%3D%2270%22%20y%3D%22260%22%20font-size%3D%2246%22%20transform%3D%22rotate%288%2070%20260%29%22%3E%E2%88%AB%3C/text%3E%3Ctext%20x%3D%22260%22%20y%3D%22300%22%20font-size%3D%2232%22%20transform%3D%22rotate%280%20260%20300%29%22%3E%E2%96%B3%3C/text%3E%3Ctext%20x%3D%22430%22%20y%3D%22360%22%20font-size%3D%2230%22%20transform%3D%22rotate%2810%20430%20360%29%22%3E%CE%B8%3C/text%3E%3Ctext%20x%3D%22140%22%20y%3D%22400%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-10%20140%20400%29%22%3E%C2%BD%3C/text%3E%3Ctext%20x%3D%22330%22%20y%3D%22440%22%20font-size%3D%2234%22%20transform%3D%22rotate%280%20330%20440%29%22%3E%E2%88%9E%3C/text%3E%3Ctext%20x%3D%2220%22%20y%3D%22450%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%2020%20450%29%22%3E%2B%3C/text%3E%3Ctext%20x%3D%22460%22%20y%3D%22110%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%20460%20110%29%22%3E%3D%3C/text%3E%3Ctext%20x%3D%22220%22%20y%3D%2240%22%20font-size%3D%2226%22%20transform%3D%22rotate%288%20220%2040%29%22%3E%25%3C/text%3E%3C/g%3E%3C/svg%3E")}
+@keyframes bg-drift{from{background-position:0 0,0 0,0 0}to{background-position:0 0,0 0,480px 480px}}
+@media (prefers-reduced-motion: no-preference){.hero::before{animation:bg-drift 90s linear infinite}}
 </style>
 </head>
 <body id="top">
@@ -290,9 +309,9 @@ html{scroll-padding-top:72px}
   <p class="lede">I led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books: I created the applet design system, trained the builders and checked every applet before release. I still do design QA for the team.</p>
   </div>
   <ul class="facts">
-    <li><strong>~450 applets</strong>Applets and investigations, Years 3 to 12</li>
+    <li><strong>~<span class="count" data-to="450">450</span> applets</strong>Applets and investigations, Years 3 to 12</li>
     <li><strong>Design system</strong>The applet style guide the team builds with, and the training to go with it</li>
-    <li><strong>12 textbooks</strong>Every applet in the Years 7–10 books checked, chapter by chapter</li>
+    <li><strong><span class="count" data-to="12">12</span> textbooks</strong>Every applet in the Years 7–10 books checked, chapter by chapter</li>
   </ul>
 </div>
 
@@ -553,6 +572,24 @@ function pipLook(svgEl,eyesEl,fallback){
   requestAnimationFrame(tick);
 })();
 
+/* ---------- Scroll reveal: cards and images fade up as they come into view ---------- */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.facts li, .services .skill, .steps li, .gallery img, .doc, .ggb-card, .projects > li, .curr, .skills .skill, .applet, .dec'));
+  if(PIP_REDUCE||!('IntersectionObserver' in window))return;
+  els.forEach(function(el){el.classList.add('reveal');});
+  var groups=new Map();
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target,p=el.parentNode,n=(groups.get(p)||0);groups.set(p,n+1);el.style.transitionDelay=Math.min(n,5)*90+'ms';el.classList.add('in');io.unobserve(el);setTimeout(function(){groups.set(p,Math.max(0,(groups.get(p)||1)-1));},400);});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
+/* ---------- Count up the numbers in the fact cards ---------- */
+(function(){
+  if(PIP_REDUCE)return;
+  document.querySelectorAll('.count').forEach(function(el){
+    var to=+el.dataset.to,t0=null;el.textContent='0';
+    function step(ts){if(t0===null)t0=ts;var u=Math.min((ts-t0)/1200,1);el.textContent=Math.round(to*(1-Math.pow(1-u,3)));if(u<1)requestAnimationFrame(step);}
+    setTimeout(function(){requestAnimationFrame(step);},300);
+  });
+})();
 /* ---------- Peek: the mascot pops up behind an applet card when it loads ---------- */
 function pipPeek(card){
   if(!card||card.querySelector('.peek')) return;
