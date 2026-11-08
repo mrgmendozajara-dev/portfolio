@@ -256,7 +256,10 @@ html{scroll-padding-top:72px}
 .steps li::before{content:counter(s);display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;margin-bottom:var(--space-3);border-radius:var(--radius-pill);background:var(--highlight);color:var(--brand-charcoal);font-weight:700}
 .steps h3{font-size:18px;line-height:24px;margin-bottom:var(--space-2)}
 .steps p{margin:0;font-size:15px;line-height:22px;color:var(--ink-muted)}
-.note{margin-top:var(--space-6);padding:var(--space-4) var(--space-6);border-radius:var(--radius-md);background:var(--tint);font-size:15px;line-height:22px;max-width:760px}
+.note{display:flex;gap:var(--space-4);align-items:flex-start;margin-top:var(--space-8);padding:var(--space-6) var(--space-8);border-radius:var(--radius-lg);background:var(--tint);border-left:6px solid var(--accent);font-size:17px;line-height:26px}
+.note svg{flex:none;margin-top:2px;color:var(--accent)}
+.note strong{display:block;font-size:18px;margin-bottom:var(--space-1);color:var(--ink)}
+@media (max-width:860px){.note{padding:var(--space-4) var(--space-6);font-size:16px;line-height:24px}}
 @media (max-width:1000px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.services,.steps{grid-template-columns:1fr}}
 
@@ -270,10 +273,10 @@ html{scroll-padding-top:72px}
 .doc figcaption{margin-top:var(--space-2);font-size:14px;color:var(--ink-muted)}
 @media (max-width:860px){.gallery.yt{grid-template-columns:repeat(2,minmax(0,1fr))}.gallery.fb{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-.ggb-card{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:var(--space-8);align-items:start;padding:var(--space-8);background:var(--surface-raised);border-radius:var(--radius-lg)}
+.ggb-card{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:var(--space-8);align-items:center;padding:var(--space-8);background:var(--surface-raised);border-radius:var(--radius-lg)}
 .ggb-card h3{margin-bottom:var(--space-2)}
 .ggb{display:block;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff}
-@media (max-width:1180px){.ggb-card{grid-template-columns:1fr}}
+@media (max-width:1040px){.ggb-card{grid-template-columns:1fr}}
 @media (max-width:860px){.ggb-card{padding:var(--space-4)}}
 /* ---------- Title mascot ---------- */
 
@@ -401,7 +404,7 @@ html{overflow-x:clip}
     <li><span class="when">GeoGebra<small>Lead</small></span><div><p>Led GeoGebra development for Mathspace’s first-edition Australian textbooks: created the applet design system, trained the builders and ran design QA.</p></div></li>
     <li><span class="when">AI-assisted content<small>Daily</small></span><div><p>Used Claude, ChatGPT and Grok every day for drafting, review and research, and built AI workflows that sped up authoring and review, always checked by a person.</p></div></li>
   </ol>
-  <p class="note">My work at Mathspace is covered by a confidentiality agreement, so I describe it here rather than share the files. I’m happy to write an original sample for your project.</p>
+  <div class="note"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p style="margin:0;max-width:none"><strong>Confidential work, original samples on request</strong>My work at Mathspace is covered by a confidentiality agreement, so I describe it here rather than share the files. I’m happy to write an original sample for your project, so you can see exactly how I’d approach it.</p></div>
 </section>
 
 <section id="geogebra">
@@ -413,7 +416,7 @@ html{overflow-x:clip}
       <p class="muted">Students drag the orange angle to any size, then decide whether it’s bigger or smaller than the right angle beside it. “New angle” gives fresh practice, and “Show angle measure” lets them check their reasoning.</p>
       <p><a href="https://www.geogebra.org/m/hawr3zbd" target="_blank" rel="noopener">Open on GeoGebra ↗</a></p>
     </div>
-    <div class="media"><iframe class="ggb" src="https://www.geogebra.org/material/iframe/id/hawr3zbd/width/744/height/448/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="744" height="448" title="Comparing right angles GeoGebra applet" loading="lazy" allowfullscreen></iframe></div>
+    <div class="media"><iframe class="ggb" src="https://www.geogebra.org/material/iframe/id/hawr3zbd/width/596/height/360/border/888888/sfsb/true/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/false/ctl/false" width="596" height="360" title="Comparing right angles GeoGebra applet" loading="lazy" allowfullscreen></iframe></div>
   </div>
   <div class="links" style="margin-top:24px"><a class="pf-btn pf-btn-ghost" href="geogebra.html">See more GeoGebra work</a></div>
 </section>
