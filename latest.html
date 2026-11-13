@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Maria Regine Mendoza-Jara — Maths Curriculum Portfolio</title>
-<meta name="description" content="Maths curriculum development and project leadership by Maria Regine Mendoza-Jara: textbook projects, standards alignment, review management and house style.">
+<title>Maria Regine Mendoza-Jara — AI-Assisted Maths Curriculum Developer</title>
+<meta name="description" content="Maria Regine Mendoza-Jara, AI-assisted maths curriculum developer: 28 printed textbooks, 13 curriculum frameworks, and AI workflows that cut chapter drafting from about 2 weeks to 2–3 days.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono&display=swap" rel="stylesheet">
@@ -260,8 +260,24 @@ html{scroll-padding-top:72px}
 .pip-in rect{fill:var(--brand-lavender)}
 .pip-eye{fill:var(--brand-charcoal)}
 .pip-line{fill:none;stroke:var(--brand-charcoal);stroke-width:1.8;stroke-linecap:round}
-.ul{position:absolute;left:0;top:0;height:6px;width:0;border-radius:var(--radius-pill);background:var(--brand-lavender);pointer-events:none;transition:opacity .5s}
+.hero h1 .tt{position:relative;z-index:1}
+.mascot{z-index:2}
+.mascot svg{transform-origin:50% 100%}
 .pip .eyes-happy{display:none}
+.facts-wrap{position:relative}
+.fact-pip{position:absolute;left:0;top:0;width:40px;height:40px;z-index:3;pointer-events:none;opacity:0;transition:opacity .35s}
+.fact-pip.show{opacity:1}
+.facts-wrap .facts strong{transition:color .35s ease}
+.facts-wrap.pip-on .facts li:first-child strong{color:var(--ink)}
+.facts-wrap .facts li.lit strong,.facts-wrap.pip-on .facts li.lit strong{color:var(--accent)}
+.fact-pip svg{display:block;width:40px;height:40px;overflow:visible;transform-origin:50% 100%}
+.eyebrow-wrap{position:relative;display:inline-block}
+.eyebrow-wrap .eyebrow{position:relative;z-index:2}
+.badge-peek{position:absolute;right:0;bottom:calc(100% - 6px);width:56px;height:48px;overflow:hidden;pointer-events:none;z-index:1}
+.bp-pip{position:absolute;left:8px;top:0;width:40px;height:40px;transform:translateY(48px);transition:transform .45s cubic-bezier(.3,1.5,.5,1)}
+.badge-peek.up .bp-pip{transform:translateY(6px)}
+.bp-pip svg{display:block;width:40px;height:40px;overflow:visible}
+
 /* peek on applet load */
 .applet{position:relative}
 .peek{position:absolute;right:var(--space-8);bottom:100%;width:72px;height:34px;overflow:hidden;pointer-events:none}
@@ -271,7 +287,7 @@ html{scroll-padding-top:72px}
 .peek.up .thumb{opacity:1;transform:scale(1) rotate(0)}
 .thumb path{fill:var(--brand-lavender);stroke:var(--accent);stroke-width:1.6;stroke-linejoin:round}
 .pip.happy .eyes-open{display:none}.pip.happy .eyes-happy{display:inline}
-@media (prefers-reduced-motion: reduce){.mascot,.ul,.peek .mascot-svg,.peek .thumb{transition:none}.hero h1 .hl.nudge{animation:none}}
+@media (prefers-reduced-motion: reduce){.bp-pip,.mascot,.ul,.peek .mascot-svg,.peek .thumb{transition:none}.hero h1 .hl.nudge{animation:none}}
 
 /* ---------- On-this-page links (sticky chips with scrollspy) ---------- */
 .subnav-bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--surface) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -315,10 +331,10 @@ html{overflow-x:clip}
 <header class="pf-header" id="siteHeader">
   <div class="pf-strip" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="pf-header-inner">
-    <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine Mendoza‑Jara</span><span class="pf-brand-role">Curriculum · Interactive maths</span></span></a>
+    <a class="pf-brand" href="latest.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine Mendoza‑Jara</span><span class="pf-brand-role">Curriculum · Interactive maths</span></span></a>
     <nav class="pf-nav" id="siteNav" aria-label="Main">
       <ul>
-        <li><a class="pf-navlink is-active" href="index.html" aria-current="page">Curriculum</a></li>
+        <li><a class="pf-navlink is-active" href="latest.html" aria-current="page">Curriculum</a></li>
         <li><a class="pf-navlink" href="geogebra.html">GeoGebra</a></li>
       </ul>
       <div class="pf-nav-end">
@@ -334,24 +350,27 @@ html{overflow-x:clip}
 <main>
 <div class="hero">
   <div>
-  <span class="eyebrow">Portfolio</span>
-  <h1 id="heroTitle">Maths curriculum developer and <span class="hl">project lead</span><span class="ul" id="titleUl" aria-hidden="true"></span><span class="mascot" id="mascot" aria-hidden="true"><svg viewBox="-20 -20 40 40"><g class="pip" id="pip">
+  <span class="eyebrow-wrap"><span class="eyebrow">Portfolio</span></span>
+  <h1 id="heroTitle"><span class="tt" id="titleText">AI-assisted maths curriculum developer</span></h1>
+  <p class="role"><strong>Digital Content Writer at Mathspace</strong>, January 2020 to October 2026</p>
+  <p class="lede">For almost seven years at Mathspace, a global edtech company that creates adaptive, curriculum-aligned online maths textbooks, I wrote, reviewed and aligned curriculum content from Years 3 to 12 for Australia, the UK, the US and Canada.</p>
+  <p class="lede">I’ve led textbook projects from planning to live publication: setting scope and house style, coordinating writers and reviewers, running review rounds and keeping books accurate and on schedule.</p>
+  <p class="lede">AI is part of how I work every day. I use Claude daily, alongside OpenAI and Grok, and I’ve built AI workflows that draft chapters from a curriculum source, speed up review and generate draft diagrams, always paired with human checks.</p>
+  </div>
+  <div class="facts-wrap">
+  <span class="fact-pip" id="factPip" aria-hidden="true"><svg viewBox="-20 -20 40 40"><g class="pip" id="pip">
     <g class="pip-out"><rect x="-18" y="-7" width="36" height="14" rx="7"/><rect x="-7" y="-18" width="14" height="36" rx="7"/></g>
     <g class="pip-in"><rect x="-18" y="-7" width="36" height="14" rx="7"/><rect x="-7" y="-18" width="14" height="36" rx="7"/></g>
     <g class="eyes-open" id="pipEyes"><circle class="pip-eye" cx="-4" cy="-2.5" r="2.4"/><circle class="pip-eye" cx="4" cy="-2.5" r="2.4"/></g>
     <g class="eyes-happy"><path class="pip-line" d="M-7 -1.5 q3 -3.5 6 0"/><path class="pip-line" d="M1 -1.5 q3 -3.5 6 0"/></g>
     <path class="pip-line" d="M-3 3 q3 3 6 0"/>
-  </g></svg></span></h1>
-  <p class="role"><strong>Digital Content Writer at Mathspace</strong>, January 2020 to October 2026</p>
-  <p class="lede">For almost seven years at Mathspace, an online maths learning platform based in Australia, I wrote, reviewed and aligned curriculum content from Years 3 to 12 for Australia, the UK, the US and Canada.</p>
-  <p class="lede">I’ve led textbook projects from planning to live publication: setting scope and house style, coordinating writers and reviewers, running review rounds and keeping books accurate and on schedule.</p>
-  <p class="lede">AI is part of how I work every day. I use Claude daily, alongside OpenAI and Grok, and I’ve built AI workflows that draft chapters from a curriculum source, speed up review and generate draft diagrams, always paired with human checks.</p>
-  </div>
+  </g></svg></span>
   <ul class="facts">
     <li><strong><span class="count" data-to="13">13</span> frameworks</strong>Australia, the UK, the US and Canada, from primary number to Year 12 Specialist</li>
     <li><strong>Project lead</strong>UK KS3 and KS4 textbooks, VCE 12 Specialist, Common Core assessments and GeoGebra</li>
     <li><strong>AI workflows</strong>Claude skills, AI-built review tools and diagram pipelines for curriculum content</li>
   </ul>
+  </div>
 </div>
 
 <section id="projects">
@@ -373,11 +392,11 @@ html{overflow-x:clip}
       </div></li>
     <li><span class="when">VCE Year 12 Specialist Mathematics<small>2025–26, owner</small></span>
       <div>
-      <p>Owned the remaining Specialist topics end to end and was the go-to person for the course’s content queries.</p>
+      <p>Took over the course to finish it: reviewed the whole course from start to finish, completed the remaining topics end to end, and was the go-to person for the course’s content queries.</p>
       </div></li>
     <li><span class="when">Senior textbook QA<small>2025–26, coordinator</small></span>
       <div>
-      <p>Coordinated writers and ran proofing QA for Queensland senior Specialist Mathematics, and QA’d chapters across senior VCE, NSW and Victorian courses, from Foundation to Specialist and Extension.</p>
+      <p>Coordinated a rotating team of writers and ran proofing QA for Queensland senior Specialist Mathematics, and QA’d chapters across senior VCE, NSW and Victorian courses, from Foundation to Specialist and Extension.</p>
       </div></li>
     <li><span class="when">Common Core Topic Assessments<small>2022, project manager</small></span>
       <div>
@@ -389,11 +408,15 @@ html{overflow-x:clip}
       </div></li>
     <li><span class="when">GeoGebra project<small>Lead, first-edition Australian books</small></span>
       <div>
-      <p>Led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books. Created the applet design system, trained several builders, reviewed applets before release and checked every applet across 12 Years 7–10 textbooks. <a href="geogebra.html">See my GeoGebra portfolio.</a></p>
+      <p>Led GeoGebra development for the first edition of Mathspace’s Australian textbooks and earlier books. Created the applet design system, trained more than 10 builders (including one to take over design QA), reviewed applets before release and checked every applet across 12 Years 7–10 textbooks. <a href="geogebra.html">See my GeoGebra portfolio.</a></p>
+      </div></li>
+    <li><span class="when">Accessibility image descriptions<small>2021–2023, writer and QA</small></span>
+      <div>
+      <p>Wrote and QA’d accessibility image descriptions for lessons, worksheets, answer keys and diagnostic questions, and built and maintained a searchable database of over 5,000 descriptions so writers could reuse them. All written without AI tools.</p>
       </div></li>
     <li><span class="when">The QED Room<small>2016–present, founder</small></span>
       <div>
-      <p>An educational <a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">YouTube channel</a> I started to help students who struggle with maths build their own problem-solving strategies, with lessons in English and Tagalog.</p>
+      <p>An educational <a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">YouTube channel</a> I started to help students who struggle with maths build their own problem-solving strategies, with lessons in English and Tagalog. It now has 47 videos and 570 subscribers.</p>
       <ul class="tight">
         <li>Ran the channel as a small team project: I planned the work in weekly sprints and tracked every task by milestone, owner, dependency and status.</li>
         <li>Set up the production templates the team worked from: worksheets, answer keys and detailed answer keys in LaTeX, plus a slide template for recordings.</li>
@@ -441,9 +464,9 @@ html{overflow-x:clip}
   </div>
   <ol class="timeline projects">
     <li><span class="when">Chapter-authoring skills<small>Claude</small></span>
-      <div><p>Built reusable Claude skills that draft full textbook chapters from a curriculum source of truth: student lessons, teacher notes, worksheets and answer keys. Companion skills write chapter reviews and chapter refreshers, so every chapter starts from the same scope and style.</p></div></li>
+      <div><p>Built reusable Claude skills that draft full textbook chapters from a curriculum source of truth: student lessons, teacher notes, worksheets and answer keys. Companion skills write chapter reviews and chapter refreshers, so every chapter starts from the same scope and style. First-draft time for a chapter went from about 2 weeks to 2–3 days.</p></div></li>
     <li><span class="when">AI-built review tools<small>Claude Code</small></span>
-      <div><p>Used AI to build browser-based review panels and side-by-side diffs. Reviewers comment directly on the rendered lesson, their feedback is applied, and every change is logged, which made review rounds faster and easier to track.</p></div></li>
+      <div><p>Used AI to build browser-based review panels and side-by-side diffs. Reviewers comment directly on the rendered lesson, their feedback is applied, and every change is logged, which made review rounds faster and easier to track. Used across about 30 chapters of the KS3 and KS4 books.</p></div></li>
     <li><span class="when">Diagram pipeline<small>AI + scripts</small></span>
       <div><p>Built a system that generates draft maths diagrams from a written description and uploads them, ready to drop into lessons for checking and polishing.</p></div></li>
     <li><span class="when">Accuracy safeguards<small>Human + automated</small></span>
@@ -502,7 +525,7 @@ html{overflow-x:clip}
   <p class="muted">Based in Calabarzon, Philippines, and used to working remotely with Australian, US and UK teams. BS Computer Science, University of the Philippines Los Baños, 2020.</p>
   <div class="links">
     <a class="pf-btn" href="mailto:mrgmendozajara@gmail.com">Email me<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
-    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/1NqgK4q9GlAh1YulNoYNRJYmKdWoGB3U6/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/1XNcUqeQydbF12bHCVuoOSpKKvhYQZK08/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
     <a class="pf-btn pf-btn-ghost" href="geogebra.html">GeoGebra portfolio</a>
   </div>
 </section>
@@ -514,13 +537,13 @@ html{overflow-x:clip}
   <div class="pf-footer-inner">
     <div class="pf-footer-top">
       <div class="pf-footer-intro">
-        <a class="pf-brand" href="index.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine</span></span></a>
+        <a class="pf-brand" href="latest.html"><svg class="pf-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><rect class="pf-mark-bg" width="36" height="36" rx="10"/><circle class="pf-mark-fg" cx="28" cy="8" r="4"/><rect class="pf-mark-fg" x="9" y="16" width="18" height="4.5" rx="2.25"/><rect class="pf-mark-fg" x="15.75" y="9.25" width="4.5" height="18" rx="2.25"/></svg><span class="pf-brand-text"><span class="pf-brand-name">Maria Regine</span></span></a>
         <p class="pf-footer-tag">Maths curriculum and interactive content. Content and applets were created for Mathspace and are shown here as work samples.</p>
       </div>
       <nav class="pf-footer-col" aria-label="Footer">
         <p class="pf-footer-head"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect y="4.75" width="12" height="2.5" rx="1.25"/><rect x="4.75" width="2.5" height="12" rx="1.25"/></svg>Pages</p>
         <ul>
-          <li><a href="index.html">Curriculum</a></li>
+          <li><a href="latest.html">Curriculum</a></li>
           <li><a href="geogebra.html">GeoGebra</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -532,7 +555,8 @@ html{overflow-x:clip}
           <li><a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">The QED Room on YouTube<span class="pf-ext" aria-hidden="true">↗</span></a></li>
           <li><a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">The QED Room on Facebook<span class="pf-ext" aria-hidden="true">↗</span></a></li>
           <li><a href="https://qedroom.pages.dev/" target="_blank" rel="noopener">The QED Room website<span class="pf-ext" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://drive.google.com/file/d/1NqgK4q9GlAh1YulNoYNRJYmKdWoGB3U6/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://drive.google.com/file/d/1XNcUqeQydbF12bHCVuoOSpKKvhYQZK08/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://drive.google.com/file/d/15otjq8A5GI8ubmBp5KEzs_GwU8blDknX/view?usp=sharing" target="_blank" rel="noopener">1-page CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </div>
@@ -544,7 +568,7 @@ html{overflow-x:clip}
 </footer>
 
 <script>
-/* ---------- Title mascot: walks in, draws an underline, hops, walks off; eyes follow the pointer ---------- */
+/* ---------- Pip drops onto the first fact card, hops across the cards while the number counts up, then settles on the last one ---------- */
 var PIP_REDUCE=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var pointer=null;
 window.addEventListener('pointermove',function(e){pointer={x:e.clientX,y:e.clientY};},{passive:true});
@@ -555,32 +579,50 @@ function pipLook(svgEl,eyesEl,fallback){
   eyesEl.setAttribute('transform','translate('+(dx/d*k).toFixed(2)+' '+(dy/d*k).toFixed(2)+')');
 }
 (function(){
-  var h1=document.getElementById('heroTitle'),m=document.getElementById('mascot'); if(!h1||!m) return;
-  var word=h1.querySelector('.hl'),ul=document.getElementById('titleUl'),pip=document.getElementById('pip'),eyes=document.getElementById('pipEyes'),svg=m.querySelector('svg');
-  var S=40;
-  function geo(){var a=h1.getBoundingClientRect(),w=word.getBoundingClientRect();
-    return {left:w.left-a.left,stop:w.right-a.left+6,out:a.width-S,y:w.bottom-a.top-S-4,uy:w.bottom-a.top-4,ww:w.width};}
-  function place(x,y,rot){m.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';pip.setAttribute('transform','rotate('+(rot||0).toFixed(1)+')');}
-  function line(g,frac,op){ul.style.transform='translate('+g.left.toFixed(1)+'px,'+g.uy.toFixed(1)+'px)';ul.style.width=(g.ww*frac).toFixed(1)+'px';ul.style.opacity=op;}
-  if(PIP_REDUCE){var g0=geo();place(Math.min(g0.stop,g0.out),g0.y);line(g0,1,1);pip.setAttribute('class','pip happy');m.classList.add('show');return;}
-  var WALK=1800,DRAW=1100,HOP=900,OUT=1500,REST=2500,T=WALK+DRAW+HOP+OUT+REST,t0=null;
-  function ease(u){return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;}
+  var wrap=document.querySelector('.facts-wrap'),m=document.getElementById('factPip');
+  if(!wrap||!m) return;
+  var pip=document.getElementById('pip'),eyes=document.getElementById('pipEyes'),svg=m.querySelector('svg'),S=40;
+  var cards=[].slice.call(wrap.querySelectorAll('.facts li'));
+  function spot(k){ // top-right corner of card k, level with its heading
+    var a=wrap.getBoundingClientRect(),r=cards[k].getBoundingClientRect();
+    return {x:r.right-a.left-S-18,y:r.top-a.top+14};}
+  function place(x,y,sx,sy,rot){m.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';svg.style.transform='scale('+sx.toFixed(3)+','+sy.toFixed(3)+') rotate('+(rot||0).toFixed(1)+'deg)';}
+  var last=cards.length-1;
+  function light(k){for(var j=0;j<=k&&j<cards.length;j++)cards[j].classList.add('lit');}
+  if(PIP_REDUCE){light(last);var p=spot(last);place(p.x,p.y,1,1);m.classList.add('show');return;}
+  wrap.classList.add('pip-on');
+  var DROP=500,STAY=900,HOP=550,t0=null,blinkAt=0;
+  var seen=!('IntersectionObserver' in window);
+  if(!seen){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){seen=true;io.disconnect();}},{threshold:.5});io.observe(wrap);}
+  // timeline: drop onto card 0, sit while the number counts up, hop to card 1, sit, hop to card 2, settle
   function tick(ts){
-    if(t0===null)t0=ts;
-    var t=(ts-t0)%T,g=geo(),start=Math.max(g.out,g.stop+40),x,y=g.y,rot=0,look=null,walkDir=0;
-    pip.setAttribute('class','pip');
-    if(t<WALK){var u=t/WALK;x=start+(g.stop-start)*ease(u);y-=Math.abs(Math.sin(u*Math.PI*6))*4;rot=-6;walkDir=-1;m.classList.add('show');line(g,0,1);}
-    else if(t<WALK+DRAW){var v=(t-WALK)/DRAW;x=g.stop+Math.sin(v*Math.PI)*4;rot=10*Math.sin(v*Math.PI);line(g,ease(v),1);}
-    else if(t<WALK+DRAW+HOP){var w=(t-WALK-DRAW)/HOP;x=g.stop;y-=Math.abs(Math.sin(w*Math.PI*2))*14;pip.setAttribute('class','pip happy');line(g,1,1);}
-    else if(t<WALK+DRAW+HOP+OUT){var o=(t-WALK-DRAW-HOP)/OUT;x=g.stop+(start-g.stop)*ease(o);y-=Math.abs(Math.sin(o*Math.PI*5))*4;rot=6;walkDir=1;if(o>.7)m.classList.remove('show');line(g,1,o>.3?0:1);}
-    else{x=start;m.classList.remove('show');line(g,0,0);}
-    place(x,y,rot);
-    if(walkDir) eyes.setAttribute('transform','translate('+(walkDir*1.6)+' 0)'); else pipLook(svg,eyes,0);
+    if(t0===null){if(!seen){requestAnimationFrame(tick);return;}t0=ts+350;}
+    var t=ts-t0,x,y,sx=1,sy=1,rot=0,cls='pip',settled=false;
+    if(t<0){m.classList.remove('show');requestAnimationFrame(tick);return;}
+    m.classList.add('show');
+    if(t<DROP){var p0=spot(0),u=t/DROP;x=p0.x;y=p0.y-90*(1-u*u);eyes.setAttribute('transform','translate(0 -1.5)');}
+    else{
+      var tt=t-DROP,seg=STAY+HOP,k=Math.floor(tt/seg),w=tt-k*seg;
+      if(k>=last){var pl=spot(last);x=pl.x;y=pl.y;settled=true;light(last);
+        var since=tt-last*seg;
+        if(since<160){var q=since/160;sx=1+.2*Math.sin(q*Math.PI);sy=1-.2*Math.sin(q*Math.PI);cls='pip happy';}
+        else if(since<900){cls='pip happy';}
+      } else if(w<STAY){var ps=spot(k);x=ps.x;y=ps.y;light(k);
+        if(w<160){var q2=w/160;sx=1+.2*Math.sin(q2*Math.PI);sy=1-.2*Math.sin(q2*Math.PI);}
+        eyes.setAttribute('transform','translate(-1.8 0)');}
+      else{var A=spot(k),B=spot(k+1),v=(w-STAY)/HOP,e=v<.5?2*v*v:1-Math.pow(-2*v+2,2)/2;
+        x=A.x+(B.x-A.x)*e;y=A.y+(B.y-A.y)*e-Math.sin(v*Math.PI)*34;rot=Math.sin(v*Math.PI)*-10;cls='pip happy';}
+    }
+    if(settled){
+      if(ts>blinkAt&&ts<blinkAt+150)cls='pip happy';
+      if(ts>blinkAt+150)blinkAt=ts+2500+Math.random()*2500;
+      if(cls==='pip')pipLook(svg,eyes,0);
+    }
+    pip.setAttribute('class',cls);place(x,y,sx,sy,rot);
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 })();
-
 /* ---------- Scroll reveal: cards and images fade up as they come into view ---------- */
 (function(){
   var els=[].slice.call(document.querySelectorAll('.facts li, .services .skill, .steps li, .gallery img, .doc, .ggb-card, .projects > li, .curr, .skills .skill, .applet, .dec'));
