@@ -325,6 +325,43 @@ html{overflow-x:clip}
 :root[data-theme="dark"] .hero::before{background-image:radial-gradient(60% 70% at 85% 20%,color-mix(in srgb,var(--brand-violet) 45%,transparent),transparent 70%),radial-gradient(40% 50% at 10% 90%,color-mix(in srgb,var(--brand-violet) 25%,transparent),transparent 70%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22480%22%20height%3D%22480%22%20viewBox%3D%220%200%20480%20480%22%3E%3Cg%20stroke%3D%22%23ab97f8%22%20stroke-opacity%3D%220.06%22%20stroke-width%3D%221%22%3E%3Cpath%20d%3D%22M0%20.5H480M0%2048.5H480M0%2096.5H480M0%20144.5H480M0%20192.5H480M0%20240.5H480M0%20288.5H480M0%20336.5H480M0%20384.5H480M0%20432.5H480M.5%200V480M48.5%200V480M96.5%200V480M144.5%200V480M192.5%200V480M240.5%200V480M288.5%200V480M336.5%200V480M384.5%200V480M432.5%200V480%22/%3E%3C/g%3E%3Cg%20fill%3D%22%23ab97f8%22%20fill-opacity%3D%220.1%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-style%3D%22italic%22%3E%3Ctext%20x%3D%2240%22%20y%3D%2270%22%20font-size%3D%2234%22%20transform%3D%22rotate%28-8%2040%2070%29%22%3E%CF%80%3C/text%3E%3Ctext%20x%3D%22300%22%20y%3D%2260%22%20font-size%3D%2230%22%20transform%3D%22rotate%286%20300%2060%29%22%3E%E2%88%9Ax%3C/text%3E%3Ctext%20x%3D%22190%22%20y%3D%22170%22%20font-size%3D%2240%22%20transform%3D%22rotate%280%20190%20170%29%22%3E%E2%88%91%3C/text%3E%3Ctext%20x%3D%22380%22%20y%3D%22210%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-6%20380%20210%29%22%3Ex%C2%B2%3C/text%3E%3Ctext%20x%3D%2270%22%20y%3D%22260%22%20font-size%3D%2246%22%20transform%3D%22rotate%288%2070%20260%29%22%3E%E2%88%AB%3C/text%3E%3Ctext%20x%3D%22260%22%20y%3D%22300%22%20font-size%3D%2232%22%20transform%3D%22rotate%280%20260%20300%29%22%3E%E2%96%B3%3C/text%3E%3Ctext%20x%3D%22430%22%20y%3D%22360%22%20font-size%3D%2230%22%20transform%3D%22rotate%2810%20430%20360%29%22%3E%CE%B8%3C/text%3E%3Ctext%20x%3D%22140%22%20y%3D%22400%22%20font-size%3D%2230%22%20transform%3D%22rotate%28-10%20140%20400%29%22%3E%C2%BD%3C/text%3E%3Ctext%20x%3D%22330%22%20y%3D%22440%22%20font-size%3D%2234%22%20transform%3D%22rotate%280%20330%20440%29%22%3E%E2%88%9E%3C/text%3E%3Ctext%20x%3D%2220%22%20y%3D%22450%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%2020%20450%29%22%3E%2B%3C/text%3E%3Ctext%20x%3D%22460%22%20y%3D%22110%22%20font-size%3D%2230%22%20transform%3D%22rotate%280%20460%20110%29%22%3E%3D%3C/text%3E%3Ctext%20x%3D%22220%22%20y%3D%2240%22%20font-size%3D%2226%22%20transform%3D%22rotate%288%20220%2040%29%22%3E%25%3C/text%3E%3C/g%3E%3C/svg%3E")}
 @keyframes bg-drift{from{background-position:0 0,0 0,0 0}to{background-position:0 0,0 0,480px 480px}}
 @media (prefers-reduced-motion: no-preference){.hero::before{animation:bg-drift 90s linear infinite}}
+.hero-video{margin-top:var(--space-6)}
+/* ---------- Demo videos ---------- */
+.demos{display:grid;grid-template-columns:1fr;gap:var(--space-12);margin-top:var(--space-10)}
+.demo{margin:0}
+.demo figcaption{margin-top:var(--space-3);color:var(--ink-muted);font-size:15px;line-height:1.55}
+.demo figcaption strong{display:block;color:var(--ink);font-size:17px;margin-bottom:2px}
+.demo figcaption a{color:var(--accent);white-space:nowrap}
+.dp{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#0d0b14;aspect-ratio:16/9;box-shadow:0 14px 36px rgba(20,10,60,.22),0 0 0 1px color-mix(in srgb,var(--brand-lavender) 35%,transparent)}
+.dp video{display:block;width:100%;height:100%;object-fit:contain;background:#0d0b14}
+.dp iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.dp-cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:0;padding:0 16px;cursor:pointer;color:#fff;font:inherit;text-align:center;
+  background:radial-gradient(70% 90% at 85% 10%,rgba(171,151,248,.5),transparent 65%),radial-gradient(60% 80% at 10% 100%,rgba(64,26,165,.6),transparent 70%),linear-gradient(rgba(171,151,248,.10) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(171,151,248,.10) 1px,transparent 1px) 0 0/24px 24px,#17121f}
+.dp-cover[hidden]{display:none}
+.dp-cover .big{width:60px;height:60px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.dp-cover:hover .big,.dp-cover:focus-visible .big{transform:scale(1.07)}
+.dp-cover .big svg{width:26px;height:26px;margin-left:4px;fill:var(--purple-800)}
+.dp-cover .t{font-size:clamp(17px,2.2vw,22px);font-weight:700}
+.dp-cover .s{font-size:13px;opacity:.8}
+.dp-bar{position:absolute;left:0;right:0;bottom:0;padding:22px 8px 4px;background:linear-gradient(transparent,rgba(10,6,20,.82));color:#fff;display:flex;flex-direction:column;gap:4px;transition:opacity .3s}
+.dp-bar[hidden]{display:none}
+.dp.idle .dp-bar{opacity:0}.dp.idle{cursor:none}
+.dp-row{display:flex;align-items:center;gap:2px}
+.dp-btn{appearance:none;border:0;background:transparent;color:#fff;width:36px;height:36px;border-radius:9px;display:grid;place-items:center;cursor:pointer;font:700 12px/1 "DM Sans",sans-serif}
+.dp-btn:hover{background:rgba(255,255,255,.14)}
+.dp-btn:focus-visible{outline:2px solid var(--purple-300);outline-offset:1px}
+.dp-btn svg{width:20px;height:20px;fill:#fff}
+.dp-speed{width:auto;padding:0 8px}
+.dp-time{font:500 12px/1 "DM Sans",sans-serif;font-variant-numeric:tabular-nums;opacity:.9;margin:0 4px;white-space:nowrap}
+.dp-sp{flex:1}
+.dp-prog{position:relative;height:14px;cursor:pointer;touch-action:none;margin:0 6px}
+.dp-prog .track{position:absolute;left:0;right:0;top:5px;height:4px;border-radius:4px;background:rgba(255,255,255,.25)}
+.dp-prog .buf,.dp-prog .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px;width:0}
+.dp-prog .buf{background:rgba(255,255,255,.35)}.dp-prog .fill{background:var(--purple-300)}
+.dp-prog .knob{position:absolute;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;left:0;transform:scale(0);transition:transform .15s}
+.dp-prog:hover .knob,.dp-prog.drag .knob,.dp-prog:focus-visible .knob{transform:scale(1)}
+.dp-prog:focus-visible{outline:none}
+@media (prefers-reduced-motion: reduce){.dp-bar,.dp-cover .big,.dp-prog .knob{transition:none}}
 </style>
 </head>
 <body id="top">
@@ -336,6 +373,7 @@ html{overflow-x:clip}
       <ul>
         <li><a class="pf-navlink is-active" href="latest.html" aria-current="page">Curriculum</a></li>
         <li><a class="pf-navlink" href="geogebra.html">GeoGebra</a></li>
+        <li><a class="pf-navlink" href="intro.html">Intro video</a></li>
       </ul>
       <div class="pf-nav-end">
         <span class="pf-status"><span class="pf-status-dot" aria-hidden="true"></span>Open to work</span>
@@ -356,6 +394,7 @@ html{overflow-x:clip}
   <p class="lede">For almost seven years at Mathspace, a global edtech company that creates adaptive, curriculum-aligned online maths textbooks, I wrote, reviewed and aligned curriculum content from Years 3 to 12 for Australia, the UK, the US and Canada.</p>
   <p class="lede">I’ve led textbook projects from planning to live publication: setting scope and house style, coordinating writers and reviewers, running review rounds and keeping books accurate and on schedule.</p>
   <p class="lede">AI is part of how I work every day. I use Claude daily, alongside OpenAI and Grok, and I’ve built AI workflows that draft chapters from a curriculum source, speed up review and generate draft diagrams, always paired with human checks.</p>
+  <p class="hero-video"><a class="pf-btn pf-btn-ghost" href="intro.html"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>Watch my 1-minute intro</a></p>
   </div>
   <div class="facts-wrap">
   <span class="fact-pip" id="factPip" aria-hidden="true"><svg viewBox="-20 -20 40 40"><g class="pip" id="pip">
@@ -474,6 +513,31 @@ html{overflow-x:clip}
     <li><span class="when">Everyday use<small>Claude, OpenAI, Grok</small></span>
       <div><p>Drafting and rewording, checking answers, researching curriculum documents, and summarising feedback and project history from tools like ClickUp and Slack.</p></div></li>
   </ol>
+  <div class="demos">
+    <figure class="demo">
+      <div class="dp" data-drive="https://drive.google.com/file/d/1JJ-VCrq1uK2_7OMmmwVK2R8dgrfEPqT9">
+      <video preload="metadata" playsinline><source src="demo-review.mp4" type="video/mp4"></video>
+      <button class="dp-cover" type="button" aria-label="Play demo: Mechanical review app"><span class="big"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="t">Mechanical review app</span><span class="s">Demo · sped up</span></button>
+      <div class="dp-bar" hidden>
+        <div class="dp-prog" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="buf"></div><div class="fill"></div></div><div class="knob"></div></div>
+        <div class="dp-row"><button class="dp-btn dp-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button><button class="dp-btn dp-mute" type="button" aria-label="Mute"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 8.5a5 5 0 0 1 0 7l-1.1-1.1a3.5 3.5 0 0 0 0-4.8zM17.8 6.2a8.2 8.2 0 0 1 0 11.6l-1.1-1.1a6.7 6.7 0 0 0 0-9.4z"/></svg></button><span class="dp-time">0:00 / 0:00</span><span class="dp-sp"></span><button class="dp-btn dp-speed" type="button" aria-label="Playback speed: 1 times">1×</button><button class="dp-btn dp-fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zM15 4h5v5h-2V6h-3zM18 15h2v5h-5v-2h3zM4 15h2v3h3v2H4z"/></svg></button></div>
+      </div>
+    </div>
+      <figcaption><strong>Mechanical review app</strong>A browser panel where reviewers comment on the rendered lesson, the feedback is applied, and every change is logged. <a href="https://drive.google.com/file/d/1JJ-VCrq1uK2_7OMmmwVK2R8dgrfEPqT9/view?usp=sharing" target="_blank" rel="noopener">Watch on Google Drive<span class="pf-ext" aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+    <figure class="demo">
+      <div class="dp" data-drive="https://drive.google.com/file/d/1z-RSAXuNtQvbb6Dz3BGrLe1uYNdMhnHm">
+      <video preload="metadata" playsinline><source src="demo-svg.mp4" type="video/mp4"></video>
+      <button class="dp-cover" type="button" aria-label="Play demo: Maths SVG generator"><span class="big"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></span><span class="t">Maths SVG generator</span><span class="s">Demo</span></button>
+      <div class="dp-bar" hidden>
+        <div class="dp-prog" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="track"><div class="buf"></div><div class="fill"></div></div><div class="knob"></div></div>
+        <div class="dp-row"><button class="dp-btn dp-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button><button class="dp-btn dp-mute" type="button" aria-label="Mute"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 8.5a5 5 0 0 1 0 7l-1.1-1.1a3.5 3.5 0 0 0 0-4.8zM17.8 6.2a8.2 8.2 0 0 1 0 11.6l-1.1-1.1a6.7 6.7 0 0 0 0-9.4z"/></svg></button><span class="dp-time">0:00 / 0:00</span><span class="dp-sp"></span><button class="dp-btn dp-speed" type="button" aria-label="Playback speed: 1 times">1×</button><button class="dp-btn dp-fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3zM15 4h5v5h-2V6h-3zM18 15h2v5h-5v-2h3zM4 15h2v3h3v2H4z"/></svg></button></div>
+      </div>
+    </div>
+      <figcaption><strong>Maths SVG generator</strong>Turns a written description into a draft maths diagram, ready to check and polish before it goes into a lesson. <a href="https://drive.google.com/file/d/1z-RSAXuNtQvbb6Dz3BGrLe1uYNdMhnHm/view?usp=sharing" target="_blank" rel="noopener">Watch on Google Drive<span class="pf-ext" aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+  </div>
+
 </section>
 
 <section id="how">
@@ -525,8 +589,9 @@ html{overflow-x:clip}
   <p class="muted">Based in Calabarzon, Philippines, and used to working remotely with Australian, US and UK teams. BS Computer Science, University of the Philippines Los Baños, 2020.</p>
   <div class="links">
     <a class="pf-btn" href="mailto:mrgmendozajara@gmail.com">Email me<span class="pf-btn-arrow" aria-hidden="true">→</span></a>
-    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/1XNcUqeQydbF12bHCVuoOSpKKvhYQZK08/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
+    <a class="pf-btn pf-btn-ghost" href="https://drive.google.com/file/d/15otjq8A5GI8ubmBp5KEzs_GwU8blDknX/view?usp=sharing" target="_blank" rel="noopener">View CV</a>
     <a class="pf-btn pf-btn-ghost" href="geogebra.html">GeoGebra portfolio</a>
+    <a class="pf-btn pf-btn-ghost" href="intro.html">Intro video</a>
   </div>
 </section>
 </main>
@@ -545,6 +610,7 @@ html{overflow-x:clip}
         <ul>
           <li><a href="latest.html">Curriculum</a></li>
           <li><a href="geogebra.html">GeoGebra</a></li>
+          <li><a href="intro.html">Intro video</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -555,8 +621,7 @@ html{overflow-x:clip}
           <li><a href="https://www.youtube.com/c/theqedroom" target="_blank" rel="noopener">The QED Room on YouTube<span class="pf-ext" aria-hidden="true">↗</span></a></li>
           <li><a href="https://www.facebook.com/theqedroom" target="_blank" rel="noopener">The QED Room on Facebook<span class="pf-ext" aria-hidden="true">↗</span></a></li>
           <li><a href="https://qedroom.pages.dev/" target="_blank" rel="noopener">The QED Room website<span class="pf-ext" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://drive.google.com/file/d/1XNcUqeQydbF12bHCVuoOSpKKvhYQZK08/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
-          <li><a href="https://drive.google.com/file/d/15otjq8A5GI8ubmBp5KEzs_GwU8blDknX/view?usp=sharing" target="_blank" rel="noopener">1-page CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://drive.google.com/file/d/15otjq8A5GI8ubmBp5KEzs_GwU8blDknX/view?usp=sharing" target="_blank" rel="noopener">CV<span class="pf-ext" aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </div>
@@ -684,5 +749,48 @@ document.querySelectorAll('.video[data-yt]').forEach(function(v){
 </script>
 <!-- Private visitor stats (GoatCounter) -->
 <script data-goatcounter="https://mrgmendozajara.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+/* ---------- Demo video players (each plays its own MP4, or falls back to Google Drive) ---------- */
+(function(){
+  var ICON={play:'M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z',pause:'M7 5h3.5v14H7zM13.5 5H17v14h-3.5z',vol:'M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 8.5a5 5 0 0 1 0 7l-1.1-1.1a3.5 3.5 0 0 0 0-4.8zM17.8 6.2a8.2 8.2 0 0 1 0 11.6l-1.1-1.1a6.7 6.7 0 0 0 0-9.4z',mute:'M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15 9.6l1.1-1.1 2.4 2.4 2.4-2.4L22 9.6l-2.4 2.4 2.4 2.4-1.1 1.1-2.4-2.4-2.4 2.4L15 14.4l2.4-2.4z',fs:'M4 9V4h5v2H6v3zM15 4h5v5h-2V6h-3zM18 15h2v5h-5v-2h3zM4 15h2v3h3v2H4z',fsx:'M7 4h2v5H4V7h3zM15 4h2v3h3v2h-5zM15 15h5v2h-3v3h-2zM4 15h5v5H7v-3H4z'};
+  function fmt(t){if(!isFinite(t))t=0;t=Math.floor(t);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');}
+  var all=[];
+  document.querySelectorAll('.dp').forEach(function(box){
+    var v=box.querySelector('video'),cover=box.querySelector('.dp-cover'),bar=box.querySelector('.dp-bar');
+    var playB=box.querySelector('.dp-play'),muteB=box.querySelector('.dp-mute'),time=box.querySelector('.dp-time'),speedB=box.querySelector('.dp-speed'),fsB=box.querySelector('.dp-fs');
+    var prog=box.querySelector('.dp-prog'),fill=box.querySelector('.fill'),buf=box.querySelector('.buf'),knob=box.querySelector('.knob');
+    function ic(b,k){b.querySelector('path').setAttribute('d',ICON[k]);}
+    var failed=false;
+    function fallback(){if(failed)return;failed=true;var f=document.createElement('iframe');f.src=box.dataset.drive+'/preview';f.allow='autoplay; fullscreen';f.allowFullscreen=true;f.loading='lazy';f.title=cover.getAttribute('aria-label');
+      v.remove();cover.remove();bar.remove();box.appendChild(f);}
+    v.addEventListener('error',fallback,true);var src=v.querySelector('source');if(src)src.addEventListener('error',fallback);
+    all.push(v);
+    cover.addEventListener('click',function(){cover.hidden=true;bar.hidden=false;v.play().catch(function(){});});
+    function toggle(){if(v.paused||v.ended)v.play().catch(function(){});else v.pause();}
+    playB.addEventListener('click',toggle);v.addEventListener('click',toggle);
+    v.addEventListener('play',function(){all.forEach(function(o){if(o!==v&&!o.paused)o.pause();});ic(playB,'pause');playB.setAttribute('aria-label','Pause');poke();});
+    v.addEventListener('pause',function(){ic(playB,'play');playB.setAttribute('aria-label','Play');box.classList.remove('idle');});
+    v.addEventListener('ended',function(){ic(playB,'play');playB.setAttribute('aria-label','Replay');box.classList.remove('idle');});
+    function draw(){var d=v.duration||0,p=d?v.currentTime/d*100:0;fill.style.width=p+'%';knob.style.left=p+'%';time.textContent=fmt(v.currentTime)+' / '+fmt(d);
+      prog.setAttribute('aria-valuenow',Math.round(p));prog.setAttribute('aria-valuetext',fmt(v.currentTime)+' of '+fmt(d));
+      if(v.buffered.length&&d)buf.style.width=(v.buffered.end(v.buffered.length-1)/d*100)+'%';}
+    ['timeupdate','loadedmetadata','progress','durationchange'].forEach(function(e){v.addEventListener(e,draw);});
+    var dragging=false;function seekAt(x){var r=prog.getBoundingClientRect(),u=Math.min(1,Math.max(0,(x-r.left)/r.width));if(v.duration)v.currentTime=u*v.duration;draw();}
+    prog.addEventListener('pointerdown',function(e){dragging=true;prog.classList.add('drag');prog.setPointerCapture(e.pointerId);seekAt(e.clientX);});
+    prog.addEventListener('pointermove',function(e){if(dragging)seekAt(e.clientX);});
+    prog.addEventListener('pointerup',function(){dragging=false;prog.classList.remove('drag');});
+    prog.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){v.currentTime=Math.min(v.duration||0,v.currentTime+5);e.preventDefault();}if(e.key==='ArrowLeft'){v.currentTime=Math.max(0,v.currentTime-5);e.preventDefault();}});
+    muteB.addEventListener('click',function(){v.muted=!v.muted;ic(muteB,v.muted?'mute':'vol');muteB.setAttribute('aria-label',v.muted?'Unmute':'Mute');});
+    var speeds=[1,1.25,1.5,2,0.75],si=0;
+    speedB.addEventListener('click',function(){si=(si+1)%speeds.length;v.playbackRate=speeds[si];speedB.textContent=speeds[si]+'×';speedB.setAttribute('aria-label','Playback speed: '+speeds[si]+' times');});
+    function isFs(){return (document.fullscreenElement||document.webkitFullscreenElement)===box;}
+    fsB.addEventListener('click',function(){if(isFs())(document.exitFullscreen||document.webkitExitFullscreen).call(document);else if(box.requestFullscreen)box.requestFullscreen();else if(box.webkitRequestFullscreen)box.webkitRequestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();});
+    ['fullscreenchange','webkitfullscreenchange'].forEach(function(e){document.addEventListener(e,function(){var f=isFs();ic(fsB,f?'fsx':'fs');fsB.setAttribute('aria-label',f?'Exit full screen':'Full screen');});});
+    var idleT;function poke(){box.classList.remove('idle');clearTimeout(idleT);if(!v.paused)idleT=setTimeout(function(){if(!v.paused&&!dragging)box.classList.add('idle');},2500);}
+    ['pointermove','pointerdown','keydown','focusin'].forEach(function(e){box.addEventListener(e,poke);});
+    draw();
+  });
+})();
+</script>
 </body>
 </html>
