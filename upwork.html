@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maria Regine Mendoza-Jara — Maths Curriculum, Writing and QA</title>
 <meta name="description" content="Maths curriculum developer, content writer, proofreader and QA specialist available on Upwork.">
@@ -351,6 +353,18 @@ html{overflow-x:clip}
 .gl-6{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--space-3);margin-top:var(--space-6)}
 .gl-ba img,.gl-pairs img,.gl-6 img{display:block;width:100%;height:auto;border-radius:8px;background:#fff;box-shadow:0 8px 22px rgba(20,10,60,.14),0 0 0 1px color-mix(in srgb,var(--brand-lavender) 25%,transparent)}
 @media (max-width:720px){.gl-ba{grid-template-columns:1fr}.gl-arrow{transform:rotate(90deg);justify-self:center}.gl-pairs{grid-template-columns:repeat(2,minmax(0,1fr))}.gl-6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.certs{list-style:none;margin:var(--space-5) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+.certs .cert{position:static;margin:0;list-style:none;display:flex;gap:var(--space-3);align-items:flex-start;padding:18px 20px!important;border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--surface-raised)}
+.certs .cert-ic{position:static;flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--accent);background:color-mix(in srgb,var(--brand-lavender) 22%,transparent)}
+.cert strong{display:block;font-size:16px;line-height:22px}
+.cert span{display:block;font-size:14px;color:var(--ink-muted);margin-top:2px}
+.cert small{display:block;font-size:12px;color:var(--ink-muted);opacity:.85;margin-top:4px;font-variant-numeric:tabular-nums}
+.cert-link{display:inline-flex;gap:4px;margin-top:8px;font-size:14px;font-weight:500;color:var(--accent);text-decoration:none}
+.cert-link:hover{text-decoration:underline}
+.certs-head{font-size:20px;line-height:28px;margin:var(--space-12) 0 var(--space-1)}
+.certs .cert::before,.certs .cert::after{content:none;display:none}
+.certs .cert-ic svg{position:static;display:block;width:20px;height:20px;margin:0}
+@media (max-width:860px){.certs{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -416,6 +430,10 @@ html{overflow-x:clip}
     <li><span class="when">AI-assisted content<small>Daily</small></span><div><p>Used Claude, ChatGPT and Grok every day for drafting, review and research, and built AI workflows that cut first-draft time for a chapter from about 2 weeks to 2–3 days, always checked by a person.</p></div></li>
   </ol>
   <div class="note"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p style="margin:0;max-width:none"><strong>Confidential work, original samples on request</strong>My work at Mathspace is covered by a confidentiality agreement, so I describe it here rather than share the files. I’m happy to write an original sample for your project, so you can see exactly how I’d approach it.</p></div>
+
+  <h3 class="certs-head">Certifications</h3>
+  <p class="muted" style="margin:0">Recent courses to keep my AI knowledge current.</p>
+  <ul class="certs"><li class="cert"><span class="cert-ic"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 1.8 3 .1.9 2.8 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.8-3 .1L12 22l-2.4-1.8-3-.1-.9-2.8L3.3 15.5l.9-2.8-.9-2.8 2.4-1.8.9-2.8 3-.1z" fill="currentColor" opacity=".18"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Introduction to Large Language Models</strong><span>Google Cloud · Issued Nov 2026</span><small>Credential ID WO05P9F6F5VU</small><a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/WO05P9F6F5VU" target="_blank" rel="noopener">Verify on Coursera<span class="pf-ext" aria-hidden="true">↗</span></a></div></li><li class="cert"><span class="cert-ic"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 1.8 3 .1.9 2.8 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.8-3 .1L12 22l-2.4-1.8-3-.1-.9-2.8L3.3 15.5l.9-2.8-.9-2.8 2.4-1.8.9-2.8 3-.1z" fill="currentColor" opacity=".18"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Introduction to Generative AI</strong><span>Google Cloud · Issued Nov 2026</span><small>Credential ID 9L4W8QX5WV89</small><a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/9L4W8QX5WV89" target="_blank" rel="noopener">Verify on Coursera<span class="pf-ext" aria-hidden="true">↗</span></a></div></li><li class="cert"><span class="cert-ic"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 1.8 3 .1.9 2.8 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.8-3 .1L12 22l-2.4-1.8-3-.1-.9-2.8L3.3 15.5l.9-2.8-.9-2.8 2.4-1.8.9-2.8 3-.1z" fill="currentColor" opacity=".18"/><path d="M8.5 12.2l2.3 2.3 4.7-4.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>AI Fundamentals</strong><span>Google · Issued Nov 2026</span><small>Credential ID CP5YRR5OKZR5</small><a class="cert-link" href="https://www.coursera.org/account/accomplishments/verify/CP5YRR5OKZR5" target="_blank" rel="noopener">Verify on Coursera<span class="pf-ext" aria-hidden="true">↗</span></a></div></li></ul>
 </section>
 
 <section id="geogebra">
